@@ -2435,6 +2435,2035 @@
         }
     },
     {
+        "id": "azure-blob-storage",
+        "product": "azure-blob-storage",
+        "cloud": "azure",
+        "categoria": "storage",
+        "descricao": "azure-blob-storage: Serviço de armazenamento gerenciado em nuvem para objetos/arquivos/volumes com opções de replicação e criptografia.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/blob-storage/",
+        "recomendacoes": [
+            "Habilitar criptografia em repouso (CMK/KMS)",
+            "Restringir acesso por políticas e network endpoints",
+            "Habilitar versioning e backups"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure encryption is enabled for storage",
+            "CIS AZU: Ensure public access is restricted"
+        ],
+        "nist_controls": [
+            "SC-12: Cryptographic Key Establishment",
+            "MP-6: Media Protection"
+        ],
+        "stride": {
+            "S": "Restringir acesso público e aplicar RBAC/Policies",
+            "T": "Monitorar acessos e uso de tokens/url pré-assinadas",
+            "R": "Backups e replicação para disponibilidade",
+            "I": "Versioning e checksums para integridade",
+            "D": "Proteções contra deleção acidental e retenção",
+            "E": "Criptografia em trânsito e repouso"
+        }
+    },
+    {
+        "id": "azure-files",
+        "product": "azure-files",
+        "cloud": "azure",
+        "categoria": "storage",
+        "descricao": "azure-files: Serviço de armazenamento gerenciado em nuvem para objetos/arquivos/volumes com opções de replicação e criptografia.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/files/",
+        "recomendacoes": [
+            "Habilitar criptografia em repouso (CMK/KMS)",
+            "Restringir acesso por políticas e network endpoints",
+            "Habilitar versioning e backups"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure encryption is enabled for storage",
+            "CIS AZU: Ensure public access is restricted"
+        ],
+        "nist_controls": [
+            "SC-12: Cryptographic Key Establishment",
+            "MP-6: Media Protection"
+        ],
+        "stride": {
+            "S": "Restringir acesso público e aplicar RBAC/Policies",
+            "T": "Monitorar acessos e uso de tokens/url pré-assinadas",
+            "R": "Backups e replicação para disponibilidade",
+            "I": "Versioning e checksums para integridade",
+            "D": "Proteções contra deleção acidental e retenção",
+            "E": "Criptografia em trânsito e repouso"
+        }
+    },
+    {
+        "id": "azure-data-lake-storage",
+        "product": "azure-data-lake-storage",
+        "cloud": "azure",
+        "categoria": "storage",
+        "descricao": "azure-data-lake-storage: Serviço de armazenamento gerenciado em nuvem para objetos/arquivos/volumes com opções de replicação e criptografia.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/data-lake-storage/",
+        "recomendacoes": [
+            "Habilitar criptografia em repouso (CMK/KMS)",
+            "Restringir acesso por políticas e network endpoints",
+            "Habilitar versioning e backups"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure encryption is enabled for storage",
+            "CIS AZU: Ensure public access is restricted"
+        ],
+        "nist_controls": [
+            "SC-12: Cryptographic Key Establishment",
+            "MP-6: Media Protection"
+        ],
+        "stride": {
+            "S": "Restringir acesso público e aplicar RBAC/Policies",
+            "T": "Monitorar acessos e uso de tokens/url pré-assinadas",
+            "R": "Backups e replicação para disponibilidade",
+            "I": "Versioning e checksums para integridade",
+            "D": "Proteções contra deleção acidental e retenção",
+            "E": "Criptografia em trânsito e repouso"
+        }
+    },
+    {
+        "id": "azure-queue-storage",
+        "product": "azure-queue-storage",
+        "cloud": "azure",
+        "categoria": "messaging",
+        "descricao": "azure-queue-storage: Serviços de mensageria e streaming para comunicação assíncrona entre componentes.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/queue-storage/",
+        "recomendacoes": [
+            "Restringir access policies",
+            "Habilitar encryption e dead-letter queues",
+            "Monitorar mensagens e throughput"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure messaging services enforce access control",
+            "CIS AZU: Ensure monitoring is enabled"
+        ],
+        "nist_controls": [
+            "SC-8: Transmission Confidentiality and Integrity",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Controlar who-can-publish/subscribe",
+            "T": "Validar mensagens e schemas",
+            "R": "Dead-letter e retries",
+            "I": "Sign/nverify messages where possible",
+            "D": "Retention and audit of message deletions",
+            "E": "Encryption in transit and at rest"
+        }
+    },
+    {
+        "id": "azure-sql-database",
+        "product": "azure-sql-database",
+        "cloud": "azure",
+        "categoria": "database",
+        "descricao": "azure-sql-database: Serviço gerenciado de banco de dados para armazenamento estruturado, com backups, alta disponibilidade e criptografia.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/sql-database/",
+        "recomendacoes": [
+            "Habilitar encryption at rest",
+            "Restringir acessos por rede e identidade",
+            "Habilitar auditing e backups regulares"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure DB auditing is enabled",
+            "CIS AZU: Ensure DB encryption is configured"
+        ],
+        "nist_controls": [
+            "SC-13: Cryptographic Protection",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Restringir acesso via rede e identidade",
+            "T": "Validar entradas para prevenir injeções",
+            "R": "Backups e multi-AZ para disponibilidade",
+            "I": "Auditing e checksums/constraints",
+            "D": "Proteção de snapshots e retenção",
+            "E": "Criptografia e gestão de chaves"
+        }
+    },
+    {
+        "id": "azure-sql-managed-instance",
+        "product": "azure-sql-managed-instance",
+        "cloud": "azure",
+        "categoria": "database",
+        "descricao": "azure-sql-managed-instance: Serviço gerenciado de banco de dados para armazenamento estruturado, com backups, alta disponibilidade e criptografia.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/sql-managed-instance/",
+        "recomendacoes": [
+            "Habilitar encryption at rest",
+            "Restringir acessos por rede e identidade",
+            "Habilitar auditing e backups regulares"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure DB auditing is enabled",
+            "CIS AZU: Ensure DB encryption is configured"
+        ],
+        "nist_controls": [
+            "SC-13: Cryptographic Protection",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Restringir acesso via rede e identidade",
+            "T": "Validar entradas para prevenir injeções",
+            "R": "Backups e multi-AZ para disponibilidade",
+            "I": "Auditing e checksums/constraints",
+            "D": "Proteção de snapshots e retenção",
+            "E": "Criptografia e gestão de chaves"
+        }
+    },
+    {
+        "id": "azure-cosmos-db",
+        "product": "azure-cosmos-db",
+        "cloud": "azure",
+        "categoria": "database",
+        "descricao": "azure-cosmos-db: Serviço gerenciado de banco de dados para armazenamento estruturado, com backups, alta disponibilidade e criptografia.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/cosmos-db/",
+        "recomendacoes": [
+            "Habilitar encryption at rest",
+            "Restringir acessos por rede e identidade",
+            "Habilitar auditing e backups regulares"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure DB auditing is enabled",
+            "CIS AZU: Ensure DB encryption is configured"
+        ],
+        "nist_controls": [
+            "SC-13: Cryptographic Protection",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Restringir acesso via rede e identidade",
+            "T": "Validar entradas para prevenir injeções",
+            "R": "Backups e multi-AZ para disponibilidade",
+            "I": "Auditing e checksums/constraints",
+            "D": "Proteção de snapshots e retenção",
+            "E": "Criptografia e gestão de chaves"
+        }
+    },
+    {
+        "id": "azure-database-for-postgresql",
+        "product": "azure-database-for-postgresql",
+        "cloud": "azure",
+        "categoria": "database",
+        "descricao": "azure-database-for-postgresql: Serviço gerenciado de banco de dados para armazenamento estruturado, com backups, alta disponibilidade e criptografia.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/database-for-postgresql/",
+        "recomendacoes": [
+            "Habilitar encryption at rest",
+            "Restringir acessos por rede e identidade",
+            "Habilitar auditing e backups regulares"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure DB auditing is enabled",
+            "CIS AZU: Ensure DB encryption is configured"
+        ],
+        "nist_controls": [
+            "SC-13: Cryptographic Protection",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Restringir acesso via rede e identidade",
+            "T": "Validar entradas para prevenir injeções",
+            "R": "Backups e multi-AZ para disponibilidade",
+            "I": "Auditing e checksums/constraints",
+            "D": "Proteção de snapshots e retenção",
+            "E": "Criptografia e gestão de chaves"
+        }
+    },
+    {
+        "id": "azure-database-for-mysql",
+        "product": "azure-database-for-mysql",
+        "cloud": "azure",
+        "categoria": "database",
+        "descricao": "azure-database-for-mysql: Serviço gerenciado de banco de dados para armazenamento estruturado, com backups, alta disponibilidade e criptografia.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/database-for-mysql/",
+        "recomendacoes": [
+            "Habilitar encryption at rest",
+            "Restringir acessos por rede e identidade",
+            "Habilitar auditing e backups regulares"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure DB auditing is enabled",
+            "CIS AZU: Ensure DB encryption is configured"
+        ],
+        "nist_controls": [
+            "SC-13: Cryptographic Protection",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Restringir acesso via rede e identidade",
+            "T": "Validar entradas para prevenir injeções",
+            "R": "Backups e multi-AZ para disponibilidade",
+            "I": "Auditing e checksums/constraints",
+            "D": "Proteção de snapshots e retenção",
+            "E": "Criptografia e gestão de chaves"
+        }
+    },
+    {
+        "id": "azure-database-for-mariadb",
+        "product": "azure-database-for-mariadb",
+        "cloud": "azure",
+        "categoria": "database",
+        "descricao": "azure-database-for-mariadb: Serviço gerenciado de banco de dados para armazenamento estruturado, com backups, alta disponibilidade e criptografia.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/database-for-mariadb/",
+        "recomendacoes": [
+            "Habilitar encryption at rest",
+            "Restringir acessos por rede e identidade",
+            "Habilitar auditing e backups regulares"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure DB auditing is enabled",
+            "CIS AZU: Ensure DB encryption is configured"
+        ],
+        "nist_controls": [
+            "SC-13: Cryptographic Protection",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Restringir acesso via rede e identidade",
+            "T": "Validar entradas para prevenir injeções",
+            "R": "Backups e multi-AZ para disponibilidade",
+            "I": "Auditing e checksums/constraints",
+            "D": "Proteção de snapshots e retenção",
+            "E": "Criptografia e gestão de chaves"
+        }
+    },
+    {
+        "id": "azure-virtual-machines",
+        "product": "azure-virtual-machines",
+        "cloud": "azure",
+        "categoria": "compute",
+        "descricao": "azure-virtual-machines: Recursos de computação (VMs/instâncias) gerenciadas, com opções de dimensionamento, imagens e redes.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/virtual-machines/",
+        "recomendacoes": [
+            "Manter imagens atualizadas e hardened",
+            "Restringir acesso via security groups/NSG",
+            "Habilitar logging e monitoramento"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure OS is patched and managed",
+            "CIS AZU: Ensure disk encryption is enabled"
+        ],
+        "nist_controls": [
+            "CM-2: Baseline Configuration",
+            "SI-2: Flaw Remediation"
+        ],
+        "stride": {
+            "S": "Isolar instâncias e controlar management ports",
+            "T": "Proteger portas de gerenciamento e monitorar tráfego",
+            "R": "Autoscaling e backups para disponibilidade",
+            "I": "Verificação de imagens e hardening",
+            "D": "Controle de acesso e logs para ações administrativas",
+            "E": "Criptografia de discos e tráfego"
+        }
+    },
+    {
+        "id": "azure-vm-scale-sets",
+        "product": "azure-vm-scale-sets",
+        "cloud": "azure",
+        "categoria": "compute",
+        "descricao": "azure-vm-scale-sets: Recursos de computação (VMs/instâncias) gerenciadas, com opções de dimensionamento, imagens e redes.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/vm-scale-sets/",
+        "recomendacoes": [
+            "Manter imagens atualizadas e hardened",
+            "Restringir acesso via security groups/NSG",
+            "Habilitar logging e monitoramento"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure OS is patched and managed",
+            "CIS AZU: Ensure disk encryption is enabled"
+        ],
+        "nist_controls": [
+            "CM-2: Baseline Configuration",
+            "SI-2: Flaw Remediation"
+        ],
+        "stride": {
+            "S": "Isolar instâncias e controlar management ports",
+            "T": "Proteger portas de gerenciamento e monitorar tráfego",
+            "R": "Autoscaling e backups para disponibilidade",
+            "I": "Verificação de imagens e hardening",
+            "D": "Controle de acesso e logs para ações administrativas",
+            "E": "Criptografia de discos e tráfego"
+        }
+    },
+    {
+        "id": "azure-app-service",
+        "product": "azure-app-service",
+        "cloud": "azure",
+        "categoria": "web",
+        "descricao": "azure-app-service: Serviço de nuvem gerenciado relacionado à categoria web.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/app-service/",
+        "recomendacoes": [
+            "Habilitar segurança por default",
+            "Proteger credenciais e integrar com IAM",
+            "Monitorar deploys e performance"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure platform services follow security baselines",
+            "CIS AZU: Ensure logging is enabled"
+        ],
+        "nist_controls": [
+            "CM-2: Baseline Configuration",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Enforce admin separation",
+            "T": "Monitor platform configs",
+            "R": "Provide failover and redundancy",
+            "I": "Ensure integrity of platform components",
+            "D": "Audit platform changes",
+            "E": "Encrypt platform secrets"
+        }
+    },
+    {
+        "id": "azure-functions",
+        "product": "azure-functions",
+        "cloud": "azure",
+        "categoria": "serverless",
+        "descricao": "azure-functions: Plataforma serverless para execução de código sob demanda ou FaaS, com integração a eventos.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/functions/",
+        "recomendacoes": [
+            "Conceder permissões mínimas (least privilege)",
+            "Habilitar VPC/private endpoints quando necessário",
+            "Proteger variáveis de ambiente/secrets"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure functions have least privilege",
+            "CIS AZU: Ensure monitoring and logging are enabled"
+        ],
+        "nist_controls": [
+            "AC-6: Least Privilege",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Forçar autenticação nos endpoints",
+            "T": "Sanitizar eventos e payloads",
+            "R": "Timeouts, retries, e redundância",
+            "I": "Versionamento e deploy controlado",
+            "D": "Rate limiting e proteção contra abuso",
+            "E": "Proteção de variáveis e chaves"
+        }
+    },
+    {
+        "id": "azure-logic-apps",
+        "product": "azure-logic-apps",
+        "cloud": "azure",
+        "categoria": "integration",
+        "descricao": "azure-logic-apps: Serviços de integração e orquestração entre sistemas e eventos (Event Grid, Data Factory).",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/logic-apps/",
+        "recomendacoes": [
+            "Habilitar segurança por default",
+            "Proteger credenciais e integrar com IAM",
+            "Monitorar deploys e performance"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure platform services follow security baselines",
+            "CIS AZU: Ensure logging is enabled"
+        ],
+        "nist_controls": [
+            "CM-2: Baseline Configuration",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Enforce admin separation",
+            "T": "Monitor platform configs",
+            "R": "Provide failover and redundancy",
+            "I": "Ensure integrity of platform components",
+            "D": "Audit platform changes",
+            "E": "Encrypt platform secrets"
+        }
+    },
+    {
+        "id": "azure-kubernetes-service",
+        "product": "azure-kubernetes-service",
+        "cloud": "azure",
+        "categoria": "containers",
+        "descricao": "azure-kubernetes-service: Serviço gerenciado de orquestração/execução de containers com suporte a imagens privadas e RBAC.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/kubernetes-service/",
+        "recomendacoes": [
+            "Ativar scanning de imagens e admission controllers",
+            "Habilitar RBAC e policies",
+            "Isolar redes e namespaces"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure cluster RBAC is enabled",
+            "CIS AZU: Ensure image scanning is in place"
+        ],
+        "nist_controls": [
+            "CM-7: Least Functionality",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "RBAC e controle de acesso ao plano de controle",
+            "T": "Escanear imagens e validar entradas",
+            "R": "Replicação e probes para disponibilidade",
+            "I": "Assinatura de imagens e políticas de integridade",
+            "D": "Revisão de permissões e logs",
+            "E": "Criptografia de segredos e tráfego intra-cluster"
+        }
+    },
+    {
+        "id": "azure-container-instances",
+        "product": "azure-container-instances",
+        "cloud": "azure",
+        "categoria": "containers",
+        "descricao": "azure-container-instances: Serviço gerenciado de orquestração/execução de containers com suporte a imagens privadas e RBAC.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/container-instances/",
+        "recomendacoes": [
+            "Ativar scanning de imagens e admission controllers",
+            "Habilitar RBAC e policies",
+            "Isolar redes e namespaces"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure cluster RBAC is enabled",
+            "CIS AZU: Ensure image scanning is in place"
+        ],
+        "nist_controls": [
+            "CM-7: Least Functionality",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "RBAC e controle de acesso ao plano de controle",
+            "T": "Escanear imagens e validar entradas",
+            "R": "Replicação e probes para disponibilidade",
+            "I": "Assinatura de imagens e políticas de integridade",
+            "D": "Revisão de permissões e logs",
+            "E": "Criptografia de segredos e tráfego intra-cluster"
+        }
+    },
+    {
+        "id": "azure-container-registry",
+        "product": "azure-container-registry",
+        "cloud": "azure",
+        "categoria": "containers",
+        "descricao": "azure-container-registry: Serviço gerenciado de orquestração/execução de containers com suporte a imagens privadas e RBAC.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/container-registry/",
+        "recomendacoes": [
+            "Ativar scanning de imagens e admission controllers",
+            "Habilitar RBAC e policies",
+            "Isolar redes e namespaces"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure cluster RBAC is enabled",
+            "CIS AZU: Ensure image scanning is in place"
+        ],
+        "nist_controls": [
+            "CM-7: Least Functionality",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "RBAC e controle de acesso ao plano de controle",
+            "T": "Escanear imagens e validar entradas",
+            "R": "Replicação e probes para disponibilidade",
+            "I": "Assinatura de imagens e políticas de integridade",
+            "D": "Revisão de permissões e logs",
+            "E": "Criptografia de segredos e tráfego intra-cluster"
+        }
+    },
+    {
+        "id": "azure-front-door",
+        "product": "azure-front-door",
+        "cloud": "azure",
+        "categoria": "networking",
+        "descricao": "azure-front-door: Recursos de rede (VNet/VPC, balanceadores, DNS, CDN) para conectividade, entrega e proteção de tráfego.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/frontdoor/",
+        "recomendacoes": [
+            "Segmentar redes e aplicar firewalls",
+            "Habilitar DDoS protection e WAF",
+            "Monitorar e auditar tráfego"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure network segmentation and NSGs",
+            "CIS AZU: Ensure WAF and DDoS are configured where needed"
+        ],
+        "nist_controls": [
+            "SC-7: Boundary Protection",
+            "AU-6: Audit Review"
+        ],
+        "stride": {
+            "S": "Filtrar tráfego e aplicar firewalls/NSGs",
+            "T": "Inspecionar tráfego e validar pacotes",
+            "R": "Redundância de rotas e failover",
+            "I": "Proteção de roteamento e integridade das tabelas",
+            "D": "Auditar mudanças de configuração",
+            "E": "Criptografia de links e TLS"
+        }
+    },
+    {
+        "id": "azure-application-gateway",
+        "product": "azure-application-gateway",
+        "cloud": "azure",
+        "categoria": "networking",
+        "descricao": "azure-application-gateway: Recursos de rede (VNet/VPC, balanceadores, DNS, CDN) para conectividade, entrega e proteção de tráfego.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/application-gateway/",
+        "recomendacoes": [
+            "Segmentar redes e aplicar firewalls",
+            "Habilitar DDoS protection e WAF",
+            "Monitorar e auditar tráfego"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure network segmentation and NSGs",
+            "CIS AZU: Ensure WAF and DDoS are configured where needed"
+        ],
+        "nist_controls": [
+            "SC-7: Boundary Protection",
+            "AU-6: Audit Review"
+        ],
+        "stride": {
+            "S": "Filtrar tráfego e aplicar firewalls/NSGs",
+            "T": "Inspecionar tráfego e validar pacotes",
+            "R": "Redundância de rotas e failover",
+            "I": "Proteção de roteamento e integridade das tabelas",
+            "D": "Auditar mudanças de configuração",
+            "E": "Criptografia de links e TLS"
+        }
+    },
+    {
+        "id": "azure-load-balancer",
+        "product": "azure-load-balancer",
+        "cloud": "azure",
+        "categoria": "networking",
+        "descricao": "azure-load-balancer: Recursos de rede (VNet/VPC, balanceadores, DNS, CDN) para conectividade, entrega e proteção de tráfego.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/load-balancer/",
+        "recomendacoes": [
+            "Segmentar redes e aplicar firewalls",
+            "Habilitar DDoS protection e WAF",
+            "Monitorar e auditar tráfego"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure network segmentation and NSGs",
+            "CIS AZU: Ensure WAF and DDoS are configured where needed"
+        ],
+        "nist_controls": [
+            "SC-7: Boundary Protection",
+            "AU-6: Audit Review"
+        ],
+        "stride": {
+            "S": "Filtrar tráfego e aplicar firewalls/NSGs",
+            "T": "Inspecionar tráfego e validar pacotes",
+            "R": "Redundância de rotas e failover",
+            "I": "Proteção de roteamento e integridade das tabelas",
+            "D": "Auditar mudanças de configuração",
+            "E": "Criptografia de links e TLS"
+        }
+    },
+    {
+        "id": "azure-virtual-network",
+        "product": "azure-virtual-network",
+        "cloud": "azure",
+        "categoria": "networking",
+        "descricao": "azure-virtual-network: Recursos de rede (VNet/VPC, balanceadores, DNS, CDN) para conectividade, entrega e proteção de tráfego.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/virtual-network/",
+        "recomendacoes": [
+            "Segmentar redes e aplicar firewalls",
+            "Habilitar DDoS protection e WAF",
+            "Monitorar e auditar tráfego"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure network segmentation and NSGs",
+            "CIS AZU: Ensure WAF and DDoS are configured where needed"
+        ],
+        "nist_controls": [
+            "SC-7: Boundary Protection",
+            "AU-6: Audit Review"
+        ],
+        "stride": {
+            "S": "Filtrar tráfego e aplicar firewalls/NSGs",
+            "T": "Inspecionar tráfego e validar pacotes",
+            "R": "Redundância de rotas e failover",
+            "I": "Proteção de roteamento e integridade das tabelas",
+            "D": "Auditar mudanças de configuração",
+            "E": "Criptografia de links e TLS"
+        }
+    },
+    {
+        "id": "azure-expressroute",
+        "product": "azure-expressroute",
+        "cloud": "azure",
+        "categoria": "networking",
+        "descricao": "azure-expressroute: Recursos de rede (VNet/VPC, balanceadores, DNS, CDN) para conectividade, entrega e proteção de tráfego.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/expressroute/",
+        "recomendacoes": [
+            "Segmentar redes e aplicar firewalls",
+            "Habilitar DDoS protection e WAF",
+            "Monitorar e auditar tráfego"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure network segmentation and NSGs",
+            "CIS AZU: Ensure WAF and DDoS are configured where needed"
+        ],
+        "nist_controls": [
+            "SC-7: Boundary Protection",
+            "AU-6: Audit Review"
+        ],
+        "stride": {
+            "S": "Filtrar tráfego e aplicar firewalls/NSGs",
+            "T": "Inspecionar tráfego e validar pacotes",
+            "R": "Redundância de rotas e failover",
+            "I": "Proteção de roteamento e integridade das tabelas",
+            "D": "Auditar mudanças de configuração",
+            "E": "Criptografia de links e TLS"
+        }
+    },
+    {
+        "id": "azure-firewall",
+        "product": "azure-firewall",
+        "cloud": "azure",
+        "categoria": "networking",
+        "descricao": "azure-firewall: Recursos de rede (VNet/VPC, balanceadores, DNS, CDN) para conectividade, entrega e proteção de tráfego.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/firewall/",
+        "recomendacoes": [
+            "Segmentar redes e aplicar firewalls",
+            "Habilitar DDoS protection e WAF",
+            "Monitorar e auditar tráfego"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure network segmentation and NSGs",
+            "CIS AZU: Ensure WAF and DDoS are configured where needed"
+        ],
+        "nist_controls": [
+            "SC-7: Boundary Protection",
+            "AU-6: Audit Review"
+        ],
+        "stride": {
+            "S": "Filtrar tráfego e aplicar firewalls/NSGs",
+            "T": "Inspecionar tráfego e validar pacotes",
+            "R": "Redundância de rotas e failover",
+            "I": "Proteção de roteamento e integridade das tabelas",
+            "D": "Auditar mudanças de configuração",
+            "E": "Criptografia de links e TLS"
+        }
+    },
+    {
+        "id": "azure-dns",
+        "product": "azure-dns",
+        "cloud": "azure",
+        "categoria": "networking",
+        "descricao": "azure-dns: Recursos de rede (VNet/VPC, balanceadores, DNS, CDN) para conectividade, entrega e proteção de tráfego.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/dns/",
+        "recomendacoes": [
+            "Segmentar redes e aplicar firewalls",
+            "Habilitar DDoS protection e WAF",
+            "Monitorar e auditar tráfego"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure network segmentation and NSGs",
+            "CIS AZU: Ensure WAF and DDoS are configured where needed"
+        ],
+        "nist_controls": [
+            "SC-7: Boundary Protection",
+            "AU-6: Audit Review"
+        ],
+        "stride": {
+            "S": "Filtrar tráfego e aplicar firewalls/NSGs",
+            "T": "Inspecionar tráfego e validar pacotes",
+            "R": "Redundância de rotas e failover",
+            "I": "Proteção de roteamento e integridade das tabelas",
+            "D": "Auditar mudanças de configuração",
+            "E": "Criptografia de links e TLS"
+        }
+    },
+    {
+        "id": "azure-cdn",
+        "product": "azure-cdn",
+        "cloud": "azure",
+        "categoria": "cdn",
+        "descricao": "azure-cdn: Redes de distribuição de conteúdo para otimizar entrega global e proteção de aplicações.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/cdn/",
+        "recomendacoes": [
+            "Habilitar segurança por default",
+            "Proteger credenciais e integrar com IAM",
+            "Monitorar deploys e performance"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure platform services follow security baselines",
+            "CIS AZU: Ensure logging is enabled"
+        ],
+        "nist_controls": [
+            "CM-2: Baseline Configuration",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Enforce admin separation",
+            "T": "Monitor platform configs",
+            "R": "Provide failover and redundancy",
+            "I": "Ensure integrity of platform components",
+            "D": "Audit platform changes",
+            "E": "Encrypt platform secrets"
+        }
+    },
+    {
+        "id": "azure-virtual-desktop",
+        "product": "azure-virtual-desktop",
+        "cloud": "azure",
+        "categoria": "workspace",
+        "descricao": "azure-virtual-desktop: Serviços de desktop/ambientes virtuais gerenciados para usuários finais.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/virtual-desktop/",
+        "recomendacoes": [
+            "Habilitar segurança por default",
+            "Proteger credenciais e integrar com IAM",
+            "Monitorar deploys e performance"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure platform services follow security baselines",
+            "CIS AZU: Ensure logging is enabled"
+        ],
+        "nist_controls": [
+            "CM-2: Baseline Configuration",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Enforce admin separation",
+            "T": "Monitor platform configs",
+            "R": "Provide failover and redundancy",
+            "I": "Ensure integrity of platform components",
+            "D": "Audit platform changes",
+            "E": "Encrypt platform secrets"
+        }
+    },
+    {
+        "id": "azure-key-vault",
+        "product": "azure-key-vault",
+        "cloud": "azure",
+        "categoria": "security",
+        "descricao": "azure-key-vault: Serviços de segurança e gestão de chaves, detecção de ameaças e proteção (WAF, KMS, GuardDuty).",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/key-vault/",
+        "recomendacoes": [
+            "Usar KMS/HSM para chaves críticas",
+            "Habilitar logging e alertas",
+            "Restringir acessos e rotacionar chaves"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure key management policies are restrictive",
+            "CIS AZU: Ensure logging for security services is enabled"
+        ],
+        "nist_controls": [
+            "SC-12: Cryptographic Key Establishment",
+            "AU-2: Audit Events"
+        ],
+        "stride": {
+            "S": "Restrigir gerenciamento de segurança a admins",
+            "T": "Monitorar uso malicioso de ferramentas de segurança",
+            "R": "Alta disponibilidade dos serviços de segurança",
+            "I": "Integridade dos artefatos e logs",
+            "D": "Auditar e proteger dados sensíveis",
+            "E": "Usar HSM/CMK para chaves"
+        }
+    },
+    {
+        "id": "azure-active-directory",
+        "product": "azure-active-directory",
+        "cloud": "azure",
+        "categoria": "identity",
+        "descricao": "azure-active-directory: Soluções de identidade e gestão de acessos (SSO, MFA, roles, policies).",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/active-directory/",
+        "recomendacoes": [
+            "Habilitar MFA e Conditional Access",
+            "Aplicar least privilege e revisões de acesso",
+            "Usar managed identities quando possível"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure MFA for admin accounts",
+            "CIS AZU: Ensure least privilege policies are enforced"
+        ],
+        "nist_controls": [
+            "IA-2: Identification and Authentication",
+            "AC-2: Account Management"
+        ],
+        "stride": {
+            "S": "Gerenciar privilégios e roles",
+            "T": "Detectar tentativas de autenticação maliciosas",
+            "R": "Revisões de acesso e provisions robustos",
+            "I": "Proteção contra escalonamento de privilégio",
+            "D": "Auditar exclusões e alterações de contas",
+            "E": "MFA e autenticação forte"
+        }
+    },
+    {
+        "id": "azure-api-management",
+        "product": "azure-api-management",
+        "cloud": "azure",
+        "categoria": "api",
+        "descricao": "azure-api-management: Plataformas para publicação, gestão e proteção de APIs com autenticação e throttling.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/api-management/",
+        "recomendacoes": [
+            "Forçar autenticação e TLS",
+            "Aplicar rate limiting e throttling",
+            "Registrar e auditar chamadas de API"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure API access control and logging is enabled",
+            "CIS AZU: Ensure input validation is enforced"
+        ],
+        "nist_controls": [
+            "SC-7: Boundary Protection",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Controlar exposição e endpoints públicos",
+            "T": "Sanitizar e validar parâmetros",
+            "R": "Throttling e circuit breakers",
+            "I": "Assinatura e checksums nas mensagens",
+            "D": "Versionamento e logs de acesso",
+            "E": "TLS e proteção de transporte"
+        }
+    },
+    {
+        "id": "azure-event-hubs",
+        "product": "azure-event-hubs",
+        "cloud": "azure",
+        "categoria": "messaging",
+        "descricao": "azure-event-hubs: Serviços de mensageria e streaming para comunicação assíncrona entre componentes.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/event-hubs/",
+        "recomendacoes": [
+            "Restringir access policies",
+            "Habilitar encryption e dead-letter queues",
+            "Monitorar mensagens e throughput"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure messaging services enforce access control",
+            "CIS AZU: Ensure monitoring is enabled"
+        ],
+        "nist_controls": [
+            "SC-8: Transmission Confidentiality and Integrity",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Controlar who-can-publish/subscribe",
+            "T": "Validar mensagens e schemas",
+            "R": "Dead-letter e retries",
+            "I": "Sign/nverify messages where possible",
+            "D": "Retention and audit of message deletions",
+            "E": "Encryption in transit and at rest"
+        }
+    },
+    {
+        "id": "azure-service-bus",
+        "product": "azure-service-bus",
+        "cloud": "azure",
+        "categoria": "messaging",
+        "descricao": "azure-service-bus: Serviços de mensageria e streaming para comunicação assíncrona entre componentes.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/service-bus/",
+        "recomendacoes": [
+            "Restringir access policies",
+            "Habilitar encryption e dead-letter queues",
+            "Monitorar mensagens e throughput"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure messaging services enforce access control",
+            "CIS AZU: Ensure monitoring is enabled"
+        ],
+        "nist_controls": [
+            "SC-8: Transmission Confidentiality and Integrity",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Controlar who-can-publish/subscribe",
+            "T": "Validar mensagens e schemas",
+            "R": "Dead-letter e retries",
+            "I": "Sign/nverify messages where possible",
+            "D": "Retention and audit of message deletions",
+            "E": "Encryption in transit and at rest"
+        }
+    },
+    {
+        "id": "azure-event-grid",
+        "product": "azure-event-grid",
+        "cloud": "azure",
+        "categoria": "integration",
+        "descricao": "azure-event-grid: Serviços de integração e orquestração entre sistemas e eventos (Event Grid, Data Factory).",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/event-grid/",
+        "recomendacoes": [
+            "Habilitar segurança por default",
+            "Proteger credenciais e integrar com IAM",
+            "Monitorar deploys e performance"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure platform services follow security baselines",
+            "CIS AZU: Ensure logging is enabled"
+        ],
+        "nist_controls": [
+            "CM-2: Baseline Configuration",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Enforce admin separation",
+            "T": "Monitor platform configs",
+            "R": "Provide failover and redundancy",
+            "I": "Ensure integrity of platform components",
+            "D": "Audit platform changes",
+            "E": "Encrypt platform secrets"
+        }
+    },
+    {
+        "id": "azure-storage-queue",
+        "product": "azure-storage-queue",
+        "cloud": "azure",
+        "categoria": "messaging",
+        "descricao": "azure-storage-queue: Serviços de mensageria e streaming para comunicação assíncrona entre componentes.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/storage-queue/",
+        "recomendacoes": [
+            "Restringir access policies",
+            "Habilitar encryption e dead-letter queues",
+            "Monitorar mensagens e throughput"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure messaging services enforce access control",
+            "CIS AZU: Ensure monitoring is enabled"
+        ],
+        "nist_controls": [
+            "SC-8: Transmission Confidentiality and Integrity",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Controlar who-can-publish/subscribe",
+            "T": "Validar mensagens e schemas",
+            "R": "Dead-letter e retries",
+            "I": "Sign/nverify messages where possible",
+            "D": "Retention and audit of message deletions",
+            "E": "Encryption in transit and at rest"
+        }
+    },
+    {
+        "id": "azure-monitor",
+        "product": "azure-monitor",
+        "cloud": "azure",
+        "categoria": "observability",
+        "descricao": "azure-monitor: Ferramentas de monitoramento, logging e tracing para observabilidade de aplicações e infra.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/monitor/",
+        "recomendacoes": [
+            "Habilitar logs, metrics e traces",
+            "Proteger acessos a dashboards",
+            "Integrar com SIEM"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure logging and monitoring are enabled",
+            "CIS AZU: Ensure log protection and retention"
+        ],
+        "nist_controls": [
+            "AU-6: Audit Review",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Protect access to monitoring systems",
+            "T": "Detect anomalies via telemetry",
+            "R": "Ensure retention and redundancy of logs",
+            "I": "Ensure log integrity and tamper-evidence",
+            "D": "Protect against log deletion",
+            "E": "Encrypt telemetry"
+        }
+    },
+    {
+        "id": "azure-application-insights",
+        "product": "azure-application-insights",
+        "cloud": "azure",
+        "categoria": "observability",
+        "descricao": "azure-application-insights: Ferramentas de monitoramento, logging e tracing para observabilidade de aplicações e infra.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/azure-monitor/app-insights-overview/",
+        "recomendacoes": [
+            "Habilitar logs, metrics e traces",
+            "Proteger acessos a dashboards",
+            "Integrar com SIEM"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure logging and monitoring are enabled",
+            "CIS AZU: Ensure log protection and retention"
+        ],
+        "nist_controls": [
+            "AU-6: Audit Review",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Protect access to monitoring systems",
+            "T": "Detect anomalies via telemetry",
+            "R": "Ensure retention and redundancy of logs",
+            "I": "Ensure log integrity and tamper-evidence",
+            "D": "Protect against log deletion",
+            "E": "Encrypt telemetry"
+        }
+    },
+    {
+        "id": "azure-sentinel",
+        "product": "azure-sentinel",
+        "cloud": "azure",
+        "categoria": "security",
+        "descricao": "azure-sentinel: Serviços de segurança e gestão de chaves, detecção de ameaças e proteção (WAF, KMS, GuardDuty).",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/sentinel/",
+        "recomendacoes": [
+            "Usar KMS/HSM para chaves críticas",
+            "Habilitar logging e alertas",
+            "Restringir acessos e rotacionar chaves"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure key management policies are restrictive",
+            "CIS AZU: Ensure logging for security services is enabled"
+        ],
+        "nist_controls": [
+            "SC-12: Cryptographic Key Establishment",
+            "AU-2: Audit Events"
+        ],
+        "stride": {
+            "S": "Restrigir gerenciamento de segurança a admins",
+            "T": "Monitorar uso malicioso de ferramentas de segurança",
+            "R": "Alta disponibilidade dos serviços de segurança",
+            "I": "Integridade dos artefatos e logs",
+            "D": "Auditar e proteger dados sensíveis",
+            "E": "Usar HSM/CMK para chaves"
+        }
+    },
+    {
+        "id": "azure-policy",
+        "product": "azure-policy",
+        "cloud": "azure",
+        "categoria": "governance",
+        "descricao": "azure-policy: Serviços para governança, policy, catalogação e compliance de dados e recursos em nuvem.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/policy/",
+        "recomendacoes": [
+            "Catalogar e classificar dados sensíveis",
+            "Aplicar policies de retenção e acesso",
+            "Integrar com DLP e SIEM"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure governance tools are enabled",
+            "CIS AZU: Ensure data classification is configured"
+        ],
+        "nist_controls": [
+            "PL-2: System and Communications Protection Policy",
+            "MP-6: Media Sanitization"
+        ],
+        "stride": {
+            "S": "Restrict policy management to admins",
+            "T": "Detect policy changes and drift",
+            "R": "Backups of governance artifacts",
+            "I": "Ensure integrity of policy definitions",
+            "D": "Audit changes and enforcement actions",
+            "E": "Encrypt governance data"
+        }
+    },
+    {
+        "id": "azure-purview",
+        "product": "azure-purview",
+        "cloud": "azure",
+        "categoria": "governance",
+        "descricao": "azure-purview: Serviços para governança, policy, catalogação e compliance de dados e recursos em nuvem.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/purview/",
+        "recomendacoes": [
+            "Catalogar e classificar dados sensíveis",
+            "Aplicar policies de retenção e acesso",
+            "Integrar com DLP e SIEM"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure governance tools are enabled",
+            "CIS AZU: Ensure data classification is configured"
+        ],
+        "nist_controls": [
+            "PL-2: System and Communications Protection Policy",
+            "MP-6: Media Sanitization"
+        ],
+        "stride": {
+            "S": "Restrict policy management to admins",
+            "T": "Detect policy changes and drift",
+            "R": "Backups of governance artifacts",
+            "I": "Ensure integrity of policy definitions",
+            "D": "Audit changes and enforcement actions",
+            "E": "Encrypt governance data"
+        }
+    },
+    {
+        "id": "azure-devops",
+        "product": "azure-devops",
+        "cloud": "azure",
+        "categoria": "devops",
+        "descricao": "azure-devops: Ferramentas e serviços para CI/CD, automação de deploy e gerenciamento de infraestrutura de desenvolvimento.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/devops/",
+        "recomendacoes": [
+            "Armazenar secrets de pipeline em secret stores",
+            "Habilitar revisão de PRs e approvers",
+            "Auditar deploys e acessos"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure CI/CD enforces least privilege",
+            "CIS AZU: Ensure secrets are not in code"
+        ],
+        "nist_controls": [
+            "CM-2: Baseline Configuration",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Control access to CI/CD pipelines",
+            "T": "Validate build artifacts",
+            "R": "Archive artifacts and enable rollback",
+            "I": "Signing and integrity checks for releases",
+            "D": "Audit deployments and approvals",
+            "E": "Protect secrets in pipelines"
+        }
+    },
+    {
+        "id": "azure-automation",
+        "product": "azure-automation",
+        "cloud": "azure",
+        "categoria": "devops",
+        "descricao": "azure-automation: Ferramentas e serviços para CI/CD, automação de deploy e gerenciamento de infraestrutura de desenvolvimento.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/automation/",
+        "recomendacoes": [
+            "Armazenar secrets de pipeline em secret stores",
+            "Habilitar revisão de PRs e approvers",
+            "Auditar deploys e acessos"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure CI/CD enforces least privilege",
+            "CIS AZU: Ensure secrets are not in code"
+        ],
+        "nist_controls": [
+            "CM-2: Baseline Configuration",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Control access to CI/CD pipelines",
+            "T": "Validate build artifacts",
+            "R": "Archive artifacts and enable rollback",
+            "I": "Signing and integrity checks for releases",
+            "D": "Audit deployments and approvals",
+            "E": "Protect secrets in pipelines"
+        }
+    },
+    {
+        "id": "azure-backup",
+        "product": "azure-backup",
+        "cloud": "azure",
+        "categoria": "backup",
+        "descricao": "azure-backup: Soluções de backup e recuperação de desastres com retenção e criptografia.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/backup/",
+        "recomendacoes": [
+            "Habilitar backups regulares e testes de restauração",
+            "Proteger backup storage e encriptação",
+            "Controlar retenção e versioning"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure backup services are configured and encrypted",
+            "CIS AZU: Ensure backup retention policies are enforced"
+        ],
+        "nist_controls": [
+            "CP-9: Information System Backup",
+            "SC-12: Cryptographic Key Establishment"
+        ],
+        "stride": {
+            "S": "Restrict access to backup stores",
+            "T": "Validate restore processes for malicious data",
+            "R": "Test restores and retention",
+            "I": "Checksums and validation on restores",
+            "D": "Protect backup retention settings",
+            "E": "Encrypt backup data"
+        }
+    },
+    {
+        "id": "azure-site-recovery",
+        "product": "azure-site-recovery",
+        "cloud": "azure",
+        "categoria": "disaster-recovery",
+        "descricao": "azure-site-recovery: Serviços para replicação, failover e recuperação de sistemas críticos.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/site-recovery/",
+        "recomendacoes": [
+            "Habilitar segurança por default",
+            "Proteger credenciais e integrar com IAM",
+            "Monitorar deploys e performance"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure platform services follow security baselines",
+            "CIS AZU: Ensure logging is enabled"
+        ],
+        "nist_controls": [
+            "CM-2: Baseline Configuration",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Enforce admin separation",
+            "T": "Monitor platform configs",
+            "R": "Provide failover and redundancy",
+            "I": "Ensure integrity of platform components",
+            "D": "Audit platform changes",
+            "E": "Encrypt platform secrets"
+        }
+    },
+    {
+        "id": "azure-synapse-analytics",
+        "product": "azure-synapse-analytics",
+        "cloud": "azure",
+        "categoria": "analytics",
+        "descricao": "azure-synapse-analytics: Plataformas para análise de dados e processamento em lote/tempo real.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/synapse-analytics/",
+        "recomendacoes": [
+            "Restringir acesso aos dados analíticos",
+            "Habilitar encryption e auditing",
+            "Versionar e catalogar datasets"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure analytics platforms have access controls",
+            "CIS AZU: Ensure logging and monitoring are enabled"
+        ],
+        "nist_controls": [
+            "AU-6: Audit Review",
+            "SC-13: Cryptographic Protection"
+        ],
+        "stride": {
+            "S": "Restrict access to analytic workspaces",
+            "T": "Sanitize inputs to analytics jobs",
+            "R": "Replicate critical data and job definitions",
+            "I": "Verify integrity of analytic outputs",
+            "D": "Audit dataset deletions and changes",
+            "E": "Encrypt sensitive analytic data"
+        }
+    },
+    {
+        "id": "azure-data-factory",
+        "product": "azure-data-factory",
+        "cloud": "azure",
+        "categoria": "integration",
+        "descricao": "azure-data-factory: Serviços de integração e orquestração entre sistemas e eventos (Event Grid, Data Factory).",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/data-factory/",
+        "recomendacoes": [
+            "Habilitar segurança por default",
+            "Proteger credenciais e integrar com IAM",
+            "Monitorar deploys e performance"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure platform services follow security baselines",
+            "CIS AZU: Ensure logging is enabled"
+        ],
+        "nist_controls": [
+            "CM-2: Baseline Configuration",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Enforce admin separation",
+            "T": "Monitor platform configs",
+            "R": "Provide failover and redundancy",
+            "I": "Ensure integrity of platform components",
+            "D": "Audit platform changes",
+            "E": "Encrypt platform secrets"
+        }
+    },
+    {
+        "id": "azure-databricks",
+        "product": "azure-databricks",
+        "cloud": "azure",
+        "categoria": "analytics",
+        "descricao": "azure-databricks: Plataformas para análise de dados e processamento em lote/tempo real.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/databricks/",
+        "recomendacoes": [
+            "Restringir acesso aos dados analíticos",
+            "Habilitar encryption e auditing",
+            "Versionar e catalogar datasets"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure analytics platforms have access controls",
+            "CIS AZU: Ensure logging and monitoring are enabled"
+        ],
+        "nist_controls": [
+            "AU-6: Audit Review",
+            "SC-13: Cryptographic Protection"
+        ],
+        "stride": {
+            "S": "Restrict access to analytic workspaces",
+            "T": "Sanitize inputs to analytics jobs",
+            "R": "Replicate critical data and job definitions",
+            "I": "Verify integrity of analytic outputs",
+            "D": "Audit dataset deletions and changes",
+            "E": "Encrypt sensitive analytic data"
+        }
+    },
+    {
+        "id": "azure-hdinsight",
+        "product": "azure-hdinsight",
+        "cloud": "azure",
+        "categoria": "analytics",
+        "descricao": "azure-hdinsight: Plataformas para análise de dados e processamento em lote/tempo real.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/hdinsight/",
+        "recomendacoes": [
+            "Restringir acesso aos dados analíticos",
+            "Habilitar encryption e auditing",
+            "Versionar e catalogar datasets"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure analytics platforms have access controls",
+            "CIS AZU: Ensure logging and monitoring are enabled"
+        ],
+        "nist_controls": [
+            "AU-6: Audit Review",
+            "SC-13: Cryptographic Protection"
+        ],
+        "stride": {
+            "S": "Restrict access to analytic workspaces",
+            "T": "Sanitize inputs to analytics jobs",
+            "R": "Replicate critical data and job definitions",
+            "I": "Verify integrity of analytic outputs",
+            "D": "Audit dataset deletions and changes",
+            "E": "Encrypt sensitive analytic data"
+        }
+    },
+    {
+        "id": "azure-stream-analytics",
+        "product": "azure-stream-analytics",
+        "cloud": "azure",
+        "categoria": "analytics",
+        "descricao": "azure-stream-analytics: Plataformas para análise de dados e processamento em lote/tempo real.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/stream-analytics/",
+        "recomendacoes": [
+            "Restringir acesso aos dados analíticos",
+            "Habilitar encryption e auditing",
+            "Versionar e catalogar datasets"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure analytics platforms have access controls",
+            "CIS AZU: Ensure logging and monitoring are enabled"
+        ],
+        "nist_controls": [
+            "AU-6: Audit Review",
+            "SC-13: Cryptographic Protection"
+        ],
+        "stride": {
+            "S": "Restrict access to analytic workspaces",
+            "T": "Sanitize inputs to analytics jobs",
+            "R": "Replicate critical data and job definitions",
+            "I": "Verify integrity of analytic outputs",
+            "D": "Audit dataset deletions and changes",
+            "E": "Encrypt sensitive analytic data"
+        }
+    },
+    {
+        "id": "azure-data-explorer",
+        "product": "azure-data-explorer",
+        "cloud": "azure",
+        "categoria": "analytics",
+        "descricao": "azure-data-explorer: Plataformas para análise de dados e processamento em lote/tempo real.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/data-explorer/",
+        "recomendacoes": [
+            "Restringir acesso aos dados analíticos",
+            "Habilitar encryption e auditing",
+            "Versionar e catalogar datasets"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure analytics platforms have access controls",
+            "CIS AZU: Ensure logging and monitoring are enabled"
+        ],
+        "nist_controls": [
+            "AU-6: Audit Review",
+            "SC-13: Cryptographic Protection"
+        ],
+        "stride": {
+            "S": "Restrict access to analytic workspaces",
+            "T": "Sanitize inputs to analytics jobs",
+            "R": "Replicate critical data and job definitions",
+            "I": "Verify integrity of analytic outputs",
+            "D": "Audit dataset deletions and changes",
+            "E": "Encrypt sensitive analytic data"
+        }
+    },
+    {
+        "id": "azure-cognitive-services",
+        "product": "azure-cognitive-services",
+        "cloud": "azure",
+        "categoria": "ai",
+        "descricao": "azure-cognitive-services: Serviços de IA/ML para treino, deployment e inferência de modelos, além de APIs de IA.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/cognitive-services/",
+        "recomendacoes": [
+            "Proteger endpoints e modelos",
+            "Versionar e auditar datasets e modelos",
+            "Aplicar governança e mitigação de viés"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure ML services protect artifacts and keys",
+            "CIS AZU: Ensure auditing of model deployments"
+        ],
+        "nist_controls": [
+            "IA-5: Authenticator Management",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Restrict access to models and endpoints",
+            "T": "Validate inputs and detect adversarial inputs",
+            "R": "Versioning and backups for models",
+            "I": "Monitor model integrity and data drift",
+            "D": "Audit model updates and data used for training",
+            "E": "Protect training data and model artifacts"
+        }
+    },
+    {
+        "id": "azure-openai-service",
+        "product": "azure-openai-service",
+        "cloud": "azure",
+        "categoria": "ai",
+        "descricao": "azure-openai-service: Serviços de IA/ML para treino, deployment e inferência de modelos, além de APIs de IA.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/openai-service/",
+        "recomendacoes": [
+            "Proteger endpoints e modelos",
+            "Versionar e auditar datasets e modelos",
+            "Aplicar governança e mitigação de viés"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure ML services protect artifacts and keys",
+            "CIS AZU: Ensure auditing of model deployments"
+        ],
+        "nist_controls": [
+            "IA-5: Authenticator Management",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Restrict access to models and endpoints",
+            "T": "Validate inputs and detect adversarial inputs",
+            "R": "Versioning and backups for models",
+            "I": "Monitor model integrity and data drift",
+            "D": "Audit model updates and data used for training",
+            "E": "Protect training data and model artifacts"
+        }
+    },
+    {
+        "id": "azure-ai-factory",
+        "product": "azure-ai-factory",
+        "cloud": "azure",
+        "categoria": "ai",
+        "descricao": "azure-ai-factory: Serviços de IA/ML para treino, deployment e inferência de modelos, além de APIs de IA.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/ai-factory/",
+        "recomendacoes": [
+            "Proteger endpoints e modelos",
+            "Versionar e auditar datasets e modelos",
+            "Aplicar governança e mitigação de viés"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure ML services protect artifacts and keys",
+            "CIS AZU: Ensure auditing of model deployments"
+        ],
+        "nist_controls": [
+            "IA-5: Authenticator Management",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Restrict access to models and endpoints",
+            "T": "Validate inputs and detect adversarial inputs",
+            "R": "Versioning and backups for models",
+            "I": "Monitor model integrity and data drift",
+            "D": "Audit model updates and data used for training",
+            "E": "Protect training data and model artifacts"
+        }
+    },
+    {
+        "id": "azure-machine-learning",
+        "product": "azure-machine-learning",
+        "cloud": "azure",
+        "categoria": "ai",
+        "descricao": "azure-machine-learning: Serviços de IA/ML para treino, deployment e inferência de modelos, além de APIs de IA.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/machine-learning/",
+        "recomendacoes": [
+            "Proteger endpoints e modelos",
+            "Versionar e auditar datasets e modelos",
+            "Aplicar governança e mitigação de viés"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure ML services protect artifacts and keys",
+            "CIS AZU: Ensure auditing of model deployments"
+        ],
+        "nist_controls": [
+            "IA-5: Authenticator Management",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Restrict access to models and endpoints",
+            "T": "Validate inputs and detect adversarial inputs",
+            "R": "Versioning and backups for models",
+            "I": "Monitor model integrity and data drift",
+            "D": "Audit model updates and data used for training",
+            "E": "Protect training data and model artifacts"
+        }
+    },
+    {
+        "id": "azure-iot-hub",
+        "product": "azure-iot-hub",
+        "cloud": "azure",
+        "categoria": "iot",
+        "descricao": "azure-iot-hub: Serviços para conectar, gerenciar e processar dados de dispositivos IoT na nuvem.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/iot-hub/",
+        "recomendacoes": [
+            "Isolar dispositivos e usar autenticação forte",
+            "Habilitar throttling e monitoring de dispositivos",
+            "Encriptar dados em trânsito e repouso"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure IoT services authenticate devices",
+            "CIS AZU: Ensure monitoring and logging for IoT"
+        ],
+        "nist_controls": [
+            "IA-2: Identification and Authentication",
+            "SC-8: Transmission Confidentiality and Integrity"
+        ],
+        "stride": {
+            "S": "Authenticate devices and isolate networks",
+            "T": "Sanitize and validate device telemetry",
+            "R": "Redundancy for gateway services",
+            "I": "Ensure integrity of device firmware and messages",
+            "D": "Audit device enrollment and deregistration",
+            "E": "Encrypt communications"
+        }
+    },
+    {
+        "id": "azure-iot-central",
+        "product": "azure-iot-central",
+        "cloud": "azure",
+        "categoria": "iot",
+        "descricao": "azure-iot-central: Serviços para conectar, gerenciar e processar dados de dispositivos IoT na nuvem.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/iot-central/",
+        "recomendacoes": [
+            "Isolar dispositivos e usar autenticação forte",
+            "Habilitar throttling e monitoring de dispositivos",
+            "Encriptar dados em trânsito e repouso"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure IoT services authenticate devices",
+            "CIS AZU: Ensure monitoring and logging for IoT"
+        ],
+        "nist_controls": [
+            "IA-2: Identification and Authentication",
+            "SC-8: Transmission Confidentiality and Integrity"
+        ],
+        "stride": {
+            "S": "Authenticate devices and isolate networks",
+            "T": "Sanitize and validate device telemetry",
+            "R": "Redundancy for gateway services",
+            "I": "Ensure integrity of device firmware and messages",
+            "D": "Audit device enrollment and deregistration",
+            "E": "Encrypt communications"
+        }
+    },
+    {
+        "id": "azure-time-series-insights",
+        "product": "azure-time-series-insights",
+        "cloud": "azure",
+        "categoria": "iot",
+        "descricao": "azure-time-series-insights: Serviços para conectar, gerenciar e processar dados de dispositivos IoT na nuvem.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/time-series-insights/",
+        "recomendacoes": [
+            "Isolar dispositivos e usar autenticação forte",
+            "Habilitar throttling e monitoring de dispositivos",
+            "Encriptar dados em trânsito e repouso"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure IoT services authenticate devices",
+            "CIS AZU: Ensure monitoring and logging for IoT"
+        ],
+        "nist_controls": [
+            "IA-2: Identification and Authentication",
+            "SC-8: Transmission Confidentiality and Integrity"
+        ],
+        "stride": {
+            "S": "Authenticate devices and isolate networks",
+            "T": "Sanitize and validate device telemetry",
+            "R": "Redundancy for gateway services",
+            "I": "Ensure integrity of device firmware and messages",
+            "D": "Audit device enrollment and deregistration",
+            "E": "Encrypt communications"
+        }
+    },
+    {
+        "id": "azure-bastion",
+        "product": "azure-bastion",
+        "cloud": "azure",
+        "categoria": "networking",
+        "descricao": "azure-bastion: Recursos de rede (VNet/VPC, balanceadores, DNS, CDN) para conectividade, entrega e proteção de tráfego.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/bastion/",
+        "recomendacoes": [
+            "Segmentar redes e aplicar firewalls",
+            "Habilitar DDoS protection e WAF",
+            "Monitorar e auditar tráfego"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure network segmentation and NSGs",
+            "CIS AZU: Ensure WAF and DDoS are configured where needed"
+        ],
+        "nist_controls": [
+            "SC-7: Boundary Protection",
+            "AU-6: Audit Review"
+        ],
+        "stride": {
+            "S": "Filtrar tráfego e aplicar firewalls/NSGs",
+            "T": "Inspecionar tráfego e validar pacotes",
+            "R": "Redundância de rotas e failover",
+            "I": "Proteção de roteamento e integridade das tabelas",
+            "D": "Auditar mudanças de configuração",
+            "E": "Criptografia de links e TLS"
+        }
+    },
+    {
+        "id": "azure-ad-privileged-identity-management",
+        "product": "azure-ad-privileged-identity-management",
+        "cloud": "azure",
+        "categoria": "identity",
+        "descricao": "azure-ad-privileged-identity-management: Soluções de identidade e gestão de acessos (SSO, MFA, roles, policies).",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/active-directory/privileged-identity-management-pim/",
+        "recomendacoes": [
+            "Habilitar MFA e Conditional Access",
+            "Aplicar least privilege e revisões de acesso",
+            "Usar managed identities quando possível"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure MFA for admin accounts",
+            "CIS AZU: Ensure least privilege policies are enforced"
+        ],
+        "nist_controls": [
+            "IA-2: Identification and Authentication",
+            "AC-2: Account Management"
+        ],
+        "stride": {
+            "S": "Gerenciar privilégios e roles",
+            "T": "Detectar tentativas de autenticação maliciosas",
+            "R": "Revisões de acesso e provisions robustos",
+            "I": "Proteção contra escalonamento de privilégio",
+            "D": "Auditar exclusões e alterações de contas",
+            "E": "MFA e autenticação forte"
+        }
+    },
+    {
+        "id": "azure-expressroute-direct",
+        "product": "azure-expressroute-direct",
+        "cloud": "azure",
+        "categoria": "networking",
+        "descricao": "azure-expressroute-direct: Recursos de rede (VNet/VPC, balanceadores, DNS, CDN) para conectividade, entrega e proteção de tráfego.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/expressroute/expressroute-direct/",
+        "recomendacoes": [
+            "Segmentar redes e aplicar firewalls",
+            "Habilitar DDoS protection e WAF",
+            "Monitorar e auditar tráfego"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure network segmentation and NSGs",
+            "CIS AZU: Ensure WAF and DDoS are configured where needed"
+        ],
+        "nist_controls": [
+            "SC-7: Boundary Protection",
+            "AU-6: Audit Review"
+        ],
+        "stride": {
+            "S": "Filtrar tráfego e aplicar firewalls/NSGs",
+            "T": "Inspecionar tráfego e validar pacotes",
+            "R": "Redundância de rotas e failover",
+            "I": "Proteção de roteamento e integridade das tabelas",
+            "D": "Auditar mudanças de configuração",
+            "E": "Criptografia de links e TLS"
+        }
+    },
+    {
+        "id": "azure-arc",
+        "product": "azure-arc",
+        "cloud": "azure",
+        "categoria": "hybrid",
+        "descricao": "azure-arc: Serviços que estendem nuvem para on-premises/edge, suportando cenários híbridos.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/arc/",
+        "recomendacoes": [
+            "Segurança em borda e componentes on-prem",
+            "Habilitar transporte seguro e monitoramento",
+            "Gerenciar patches e updates consistentemente"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure hybrid services have consistent security policies"
+        ],
+        "nist_controls": [
+            "SC-7: Boundary Protection",
+            "CM-2: Baseline Configuration"
+        ],
+        "stride": {
+            "S": "Secure on-prem connectors",
+            "T": "Validate hybrid traffic",
+            "R": "Ensure redundancy across sites",
+            "I": "Ensure integrity of sync processes",
+            "D": "Audit hybrid config changes",
+            "E": "Encrypt transport"
+        }
+    },
+    {
+        "id": "azure-migrate",
+        "product": "azure-migrate",
+        "cloud": "azure",
+        "categoria": "migration",
+        "descricao": "azure-migrate: Ferramentas para migrar aplicações e dados para a nuvem.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/migrate/",
+        "recomendacoes": [
+            "Habilitar segurança por default",
+            "Proteger credenciais e integrar com IAM",
+            "Monitorar deploys e performance"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure platform services follow security baselines",
+            "CIS AZU: Ensure logging is enabled"
+        ],
+        "nist_controls": [
+            "CM-2: Baseline Configuration",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Enforce admin separation",
+            "T": "Monitor platform configs",
+            "R": "Provide failover and redundancy",
+            "I": "Ensure integrity of platform components",
+            "D": "Audit platform changes",
+            "E": "Encrypt platform secrets"
+        }
+    },
+    {
+        "id": "azure-spring-cloud",
+        "product": "azure-spring-cloud",
+        "cloud": "azure",
+        "categoria": "platform",
+        "descricao": "azure-spring-cloud: Plataformas gerenciadas para hospedar aplicações com suporte a infraestrutura subjacente.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/spring-cloud/",
+        "recomendacoes": [
+            "Habilitar segurança por default",
+            "Proteger credenciais e integrar com IAM",
+            "Monitorar deploys e performance"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure platform services follow security baselines",
+            "CIS AZU: Ensure logging is enabled"
+        ],
+        "nist_controls": [
+            "CM-2: Baseline Configuration",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Enforce admin separation",
+            "T": "Monitor platform configs",
+            "R": "Provide failover and redundancy",
+            "I": "Ensure integrity of platform components",
+            "D": "Audit platform changes",
+            "E": "Encrypt platform secrets"
+        }
+    },
+    {
+        "id": "azure-container-apps",
+        "product": "azure-container-apps",
+        "cloud": "azure",
+        "categoria": "containers",
+        "descricao": "azure-container-apps: Serviço gerenciado de orquestração/execução de containers com suporte a imagens privadas e RBAC.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/container-apps/",
+        "recomendacoes": [
+            "Ativar scanning de imagens e admission controllers",
+            "Habilitar RBAC e policies",
+            "Isolar redes e namespaces"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure cluster RBAC is enabled",
+            "CIS AZU: Ensure image scanning is in place"
+        ],
+        "nist_controls": [
+            "CM-7: Least Functionality",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "RBAC e controle de acesso ao plano de controle",
+            "T": "Escanear imagens e validar entradas",
+            "R": "Replicação e probes para disponibilidade",
+            "I": "Assinatura de imagens e políticas de integridade",
+            "D": "Revisão de permissões e logs",
+            "E": "Criptografia de segredos e tráfego intra-cluster"
+        }
+    },
+    {
+        "id": "azure-communication-services",
+        "product": "azure-communication-services",
+        "cloud": "azure",
+        "categoria": "communication",
+        "descricao": "azure-communication-services: Serviços de comunicação (voz, chat, SMS) e APIs para integração com aplicações.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/communication-service/",
+        "recomendacoes": [
+            "Habilitar segurança por default",
+            "Proteger credenciais e integrar com IAM",
+            "Monitorar deploys e performance"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure platform services follow security baselines",
+            "CIS AZU: Ensure logging is enabled"
+        ],
+        "nist_controls": [
+            "CM-2: Baseline Configuration",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Enforce admin separation",
+            "T": "Monitor platform configs",
+            "R": "Provide failover and redundancy",
+            "I": "Ensure integrity of platform components",
+            "D": "Audit platform changes",
+            "E": "Encrypt platform secrets"
+        }
+    },
+    {
+        "id": "azure-media-services",
+        "product": "azure-media-services",
+        "cloud": "azure",
+        "categoria": "media",
+        "descricao": "azure-media-services: Serviços para processamento, transcodificação e entrega de mídia e vídeo.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/media-services/",
+        "recomendacoes": [
+            "Habilitar segurança por default",
+            "Proteger credenciais e integrar com IAM",
+            "Monitorar deploys e performance"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure platform services follow security baselines",
+            "CIS AZU: Ensure logging is enabled"
+        ],
+        "nist_controls": [
+            "CM-2: Baseline Configuration",
+            "SI-4: System Monitoring"
+        ],
+        "stride": {
+            "S": "Enforce admin separation",
+            "T": "Monitor platform configs",
+            "R": "Provide failover and redundancy",
+            "I": "Ensure integrity of platform components",
+            "D": "Audit platform changes",
+            "E": "Encrypt platform secrets"
+        }
+    },
+    {
+        "id": "azure-virtual-wan",
+        "product": "azure-virtual-wan",
+        "cloud": "azure",
+        "categoria": "networking",
+        "descricao": "azure-virtual-wan: Recursos de rede (VNet/VPC, balanceadores, DNS, CDN) para conectividade, entrega e proteção de tráfego.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/virtual-wan/",
+        "recomendacoes": [
+            "Segmentar redes e aplicar firewalls",
+            "Habilitar DDoS protection e WAF",
+            "Monitorar e auditar tráfego"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure network segmentation and NSGs",
+            "CIS AZU: Ensure WAF and DDoS are configured where needed"
+        ],
+        "nist_controls": [
+            "SC-7: Boundary Protection",
+            "AU-6: Audit Review"
+        ],
+        "stride": {
+            "S": "Filtrar tráfego e aplicar firewalls/NSGs",
+            "T": "Inspecionar tráfego e validar pacotes",
+            "R": "Redundância de rotas e failover",
+            "I": "Proteção de roteamento e integridade das tabelas",
+            "D": "Auditar mudanças de configuração",
+            "E": "Criptografia de links e TLS"
+        }
+    },
+    {
+        "id": "azure-waf",
+        "product": "azure-waf",
+        "cloud": "azure",
+        "categoria": "security",
+        "descricao": "azure-waf: Serviços de segurança e gestão de chaves, detecção de ameaças e proteção (WAF, KMS, GuardDuty).",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/waf/",
+        "recomendacoes": [
+            "Usar KMS/HSM para chaves críticas",
+            "Habilitar logging e alertas",
+            "Restringir acessos e rotacionar chaves"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure key management policies are restrictive",
+            "CIS AZU: Ensure logging for security services is enabled"
+        ],
+        "nist_controls": [
+            "SC-12: Cryptographic Key Establishment",
+            "AU-2: Audit Events"
+        ],
+        "stride": {
+            "S": "Restrigir gerenciamento de segurança a admins",
+            "T": "Monitorar uso malicioso de ferramentas de segurança",
+            "R": "Alta disponibilidade dos serviços de segurança",
+            "I": "Integridade dos artefatos e logs",
+            "D": "Auditar e proteger dados sensíveis",
+            "E": "Usar HSM/CMK para chaves"
+        }
+    },
+    {
+        "id": "azure-dns-zones",
+        "product": "azure-dns-zones",
+        "cloud": "azure",
+        "categoria": "networking",
+        "descricao": "azure-dns-zones: Recursos de rede (VNet/VPC, balanceadores, DNS, CDN) para conectividade, entrega e proteção de tráfego.",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/dns-zones/",
+        "recomendacoes": [
+            "Segmentar redes e aplicar firewalls",
+            "Habilitar DDoS protection e WAF",
+            "Monitorar e auditar tráfego"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure network segmentation and NSGs",
+            "CIS AZU: Ensure WAF and DDoS are configured where needed"
+        ],
+        "nist_controls": [
+            "SC-7: Boundary Protection",
+            "AU-6: Audit Review"
+        ],
+        "stride": {
+            "S": "Filtrar tráfego e aplicar firewalls/NSGs",
+            "T": "Inspecionar tráfego e validar pacotes",
+            "R": "Redundância de rotas e failover",
+            "I": "Proteção de roteamento e integridade das tabelas",
+            "D": "Auditar mudanças de configuração",
+            "E": "Criptografia de links e TLS"
+        }
+    },
+    {
+        "id": "azure-storage-sas",
+        "product": "azure-storage-sas",
+        "cloud": "azure",
+        "categoria": "security",
+        "descricao": "azure-storage-sas: Serviços de segurança e gestão de chaves, detecção de ameaças e proteção (WAF, KMS, GuardDuty).",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/storage/",
+        "recomendacoes": [
+            "Usar KMS/HSM para chaves críticas",
+            "Habilitar logging e alertas",
+            "Restringir acessos e rotacionar chaves"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure key management policies are restrictive",
+            "CIS AZU: Ensure logging for security services is enabled"
+        ],
+        "nist_controls": [
+            "SC-12: Cryptographic Key Establishment",
+            "AU-2: Audit Events"
+        ],
+        "stride": {
+            "S": "Restrigir gerenciamento de segurança a admins",
+            "T": "Monitorar uso malicioso de ferramentas de segurança",
+            "R": "Alta disponibilidade dos serviços de segurança",
+            "I": "Integridade dos artefatos e logs",
+            "D": "Auditar e proteger dados sensíveis",
+            "E": "Usar HSM/CMK para chaves"
+        }
+    },
+    {
+        "id": "azure-key-vault-managed-hsm",
+        "product": "azure-key-vault-managed-hsm",
+        "cloud": "azure",
+        "categoria": "security",
+        "descricao": "azure-key-vault-managed-hsm: Serviços de segurança e gestão de chaves, detecção de ameaças e proteção (WAF, KMS, GuardDuty).",
+        "link_oficial": "https://azure.microsoft.com/en-us/products/key-vault/managed-hsm/",
+        "recomendacoes": [
+            "Usar KMS/HSM para chaves críticas",
+            "Habilitar logging e alertas",
+            "Restringir acessos e rotacionar chaves"
+        ],
+        "cis_controls": [
+            "CIS AZU: Ensure key management policies are restrictive",
+            "CIS AZU: Ensure logging for security services is enabled"
+        ],
+        "nist_controls": [
+            "SC-12: Cryptographic Key Establishment",
+            "AU-2: Audit Events"
+        ],
+        "stride": {
+            "S": "Restrigir gerenciamento de segurança a admins",
+            "T": "Monitorar uso malicioso de ferramentas de segurança",
+            "R": "Alta disponibilidade dos serviços de segurança",
+            "I": "Integridade dos artefatos e logs",
+            "D": "Auditar e proteger dados sensíveis",
+            "E": "Usar HSM/CMK para chaves"
+        }
+    },
+    {
         "id": "aws-s3",
         "product": "aws-s3",
         "cloud": "aws",
@@ -2551,11 +4580,11 @@
         }
     },
     {
-        "id": "aws-s3-glacier-deep-archive",
-        "product": "aws-s3-glacier-deep-archive",
+        "id": "aws-s-3-glacier-deep-archive",
+        "product": "aws-s-3-glacier-deep-archive",
         "cloud": "aws",
         "categoria": "storage",
-        "descricao": "aws-s3-glacier-deep-archive: Serviço de armazenamento gerenciado em nuvem para objetos/arquivos/volumes com opções de replicação e criptografia.",
+        "descricao": "aws-s-3-glacier-deep-archive: Serviço de armazenamento gerenciado em nuvem para objetos/arquivos/volumes com opções de replicação e criptografia.",
         "link_oficial": "https://aws.amazon.com/s3/glacier/",
         "recomendacoes": [
             "Habilitar criptografia em repouso (CMK/KMS)",
@@ -2580,11 +4609,11 @@
         }
     },
     {
-        "id": "aws-ec2",
-        "product": "aws-ec2",
+        "id": "aws-ec-2",
+        "product": "aws-ec-2",
         "cloud": "aws",
         "categoria": "compute",
-        "descricao": "aws-ec2: Recursos de computação (VMs/instâncias) gerenciadas, com opções de dimensionamento, imagens e redes.",
+        "descricao": "aws-ec-2: Recursos de computação (VMs/instâncias) gerenciadas, com opções de dimensionamento, imagens e redes.",
         "link_oficial": "https://aws.amazon.com/ec2/",
         "recomendacoes": [
             "Manter imagens atualizadas e hardened",
@@ -2609,11 +4638,11 @@
         }
     },
     {
-        "id": "aws-ec2-auto-scaling",
-        "product": "aws-ec2-auto-scaling",
+        "id": "aws-ec-2-auto-scaling",
+        "product": "aws-ec-2-auto-scaling",
         "cloud": "aws",
         "categoria": "compute",
-        "descricao": "aws-ec2-auto-scaling: Recursos de computação (VMs/instâncias) gerenciadas, com opções de dimensionamento, imagens e redes.",
+        "descricao": "aws-ec-2-auto-scaling: Recursos de computação (VMs/instâncias) gerenciadas, com opções de dimensionamento, imagens e redes.",
         "link_oficial": "https://aws.amazon.com/autoscaling/",
         "recomendacoes": [
             "Manter imagens atualizadas e hardened",
@@ -3247,11 +5276,11 @@
         }
     },
     {
-        "id": "aws-route53",
-        "product": "aws-route53",
+        "id": "aws-route-53",
+        "product": "aws-route-53",
         "cloud": "aws",
         "categoria": "networking",
-        "descricao": "aws-route53: Recursos de rede (VNet/VPC, balanceadores, DNS, CDN) para conectividade, entrega e proteção de tráfego.",
+        "descricao": "aws-route-53: Recursos de rede (VNet/VPC, balanceadores, DNS, CDN) para conectividade, entrega e proteção de tráfego.",
         "link_oficial": "https://aws.amazon.com/route53/",
         "recomendacoes": [
             "Segmentar redes e aplicar firewalls",
@@ -4406,11 +6435,11 @@
         }
     },
     {
-        "id": "aws-cloud9",
-        "product": "aws-cloud9",
+        "id": "aws-cloud-9",
+        "product": "aws-cloud-9",
         "cloud": "aws",
         "categoria": "developer-tools",
-        "descricao": "aws-cloud9: Ambientes e ferramentas para desenvolvimento e debugging em nuvem.",
+        "descricao": "aws-cloud-9: Ambientes e ferramentas para desenvolvimento e debugging em nuvem.",
         "link_oficial": "https://aws.amazon.com/cloud9/",
         "recomendacoes": [
             "Habilitar segurança por default",
@@ -4461,325 +6490,6 @@
             "I": "Ensure log integrity and tamper-evidence",
             "D": "Protect against log deletion",
             "E": "Encrypt telemetry"
-        }
-    },
-    {
-        "id": "aws-lambda",
-        "product": "aws-lambda",
-        "cloud": "aws",
-        "categoria": "serverless",
-        "descricao": "aws-lambda: Serviço serverless para execução de funções sob demanda em resposta a eventos, sem necessidade de provisionar servidores.",
-        "link_oficial": "https://aws.amazon.com/lambda/",
-        "recomendacoes": [
-            "Aplicar princípio de least privilege nas funções",
-            "Criptografar variáveis de ambiente com KMS",
-            "Habilitar monitoramento com CloudWatch e X-Ray"
-        ],
-        "cis_controls": [
-            "CIS AWS: Ensure Lambda functions restrict permissions",
-            "CIS AWS: Ensure monitoring and logging are enabled"
-        ],
-        "nist_controls": [
-            "AC-6: Least Privilege",
-            "SI-4: System Monitoring"
-        ],
-        "stride": {
-            "S": "Restringir execução de funções e permissões IAM",
-            "T": "Validar payloads e entradas dos eventos",
-            "R": "Configurar retries e timeouts",
-            "I": "Versionar e monitorar deploys",
-            "D": "Auditar alterações de código/funções",
-            "E": "Criptografar variáveis e dados em trânsito"
-        }
-    },
-    {
-        "id": "aws-dynamodb",
-        "product": "aws-dynamodb",
-        "cloud": "aws",
-        "categoria": "database",
-        "descricao": "aws-dynamodb: Banco de dados NoSQL totalmente gerenciado, com escalabilidade automática e baixa latência.",
-        "link_oficial": "https://aws.amazon.com/dynamodb/",
-        "recomendacoes": [
-            "Habilitar criptografia em repouso (KMS)",
-            "Usar IAM roles para controlar acesso",
-            "Habilitar backups contínuos e point-in-time recovery"
-        ],
-        "cis_controls": [
-            "CIS AWS: Ensure encryption is enabled for databases",
-            "CIS AWS: Ensure least privilege access policies"
-        ],
-        "nist_controls": [
-            "SC-13: Cryptographic Protection",
-            "SI-4: System Monitoring"
-        ],
-        "stride": {
-            "S": "Controlar permissões IAM para leitura/escrita",
-            "T": "Validar inputs e prevenir injeções",
-            "R": "Backups automáticos e PITR",
-            "I": "Checksums e constraints",
-            "D": "Controle de exclusão e retenção",
-            "E": "Criptografia com KMS"
-        }
-    },
-    {
-        "id": "aws-redshift",
-        "product": "aws-redshift",
-        "cloud": "aws",
-        "categoria": "analytics",
-        "descricao": "aws-redshift: Data warehouse totalmente gerenciado para análises em larga escala com SQL.",
-        "link_oficial": "https://aws.amazon.com/redshift/",
-        "recomendacoes": [
-            "Criptografar clusters com KMS",
-            "Isolar redes com VPC",
-            "Auditar queries e acessos"
-        ],
-        "cis_controls": [
-            "CIS AWS: Ensure encryption is enabled for data warehouses",
-            "CIS AWS: Ensure auditing and logging are configured"
-        ],
-        "nist_controls": [
-            "AU-6: Audit Review",
-            "SC-13: Cryptographic Protection"
-        ],
-        "stride": {
-            "S": "Restringir acesso via IAM e VPC",
-            "T": "Validar queries e monitorar padrões anômalos",
-            "R": "Snapshots e replicação",
-            "I": "Verificação de integridade dos dados",
-            "D": "Controle de exclusão de tabelas/dados",
-            "E": "Criptografia em repouso e trânsito"
-        }
-    },
-    {
-        "id": "aws-athena",
-        "product": "aws-athena",
-        "cloud": "aws",
-        "categoria": "analytics",
-        "descricao": "aws-athena: Serviço de consulta interativa serverless que permite executar queries SQL diretamente em dados no Amazon S3.",
-        "link_oficial": "https://aws.amazon.com/athena/",
-        "recomendacoes": [
-            "Criptografar resultados e queries com KMS",
-            "Controlar permissões de acesso ao S3",
-            "Habilitar auditoria e monitoramento"
-        ],
-        "cis_controls": [
-            "CIS AWS: Ensure query services are restricted by IAM",
-            "CIS AWS: Ensure encryption for analytics outputs"
-        ],
-        "nist_controls": [
-            "AC-6: Least Privilege",
-            "AU-6: Audit Review"
-        ],
-        "stride": {
-            "S": "Controlar IAM policies de acesso ao Athena",
-            "T": "Validar queries e prevenir exploração",
-            "R": "Backups de resultados críticos",
-            "I": "Verificar consistência dos outputs",
-            "D": "Auditar exclusões de resultados",
-            "E": "Criptografia dos dados e resultados"
-        }
-    },
-    {
-        "id": "aws-kinesis",
-        "product": "aws-kinesis",
-        "cloud": "aws",
-        "categoria": "messaging",
-        "descricao": "aws-kinesis: Plataforma gerenciada para ingestão, processamento e análise de dados em streaming em tempo real.",
-        "link_oficial": "https://aws.amazon.com/kinesis/",
-        "recomendacoes": [
-            "Aplicar IAM policies restritivas em streams",
-            "Habilitar criptografia em repouso e em trânsito",
-            "Monitorar throughput e anomalias"
-        ],
-        "cis_controls": [
-            "CIS AWS: Ensure messaging services enforce encryption",
-            "CIS AWS: Ensure monitoring is enabled"
-        ],
-        "nist_controls": [
-            "SC-8: Transmission Confidentiality and Integrity",
-            "SI-4: System Monitoring"
-        ],
-        "stride": {
-            "S": "Restringir quem pode publicar/consumir streams",
-            "T": "Validar schemas de mensagens",
-            "R": "Configurar retries e DLQs",
-            "I": "Verificar integridade dos eventos",
-            "D": "Auditar exclusão de streams",
-            "E": "Criptografia com KMS"
-        }
-    },
-    {
-        "id": "aws-glue",
-        "product": "aws-glue",
-        "cloud": "aws",
-        "categoria": "integration",
-        "descricao": "aws-glue: Serviço de ETL totalmente gerenciado para catalogar, preparar e transformar dados para análise.",
-        "link_oficial": "https://aws.amazon.com/glue/",
-        "recomendacoes": [
-            "Restringir permissões IAM para jobs e crawlers",
-            "Criptografar dados de catálogo e outputs",
-            "Auditar execução de jobs"
-        ],
-        "cis_controls": [
-            "CIS AWS: Ensure data integration services enforce access control",
-            "CIS AWS: Ensure encryption is enabled for ETL outputs"
-        ],
-        "nist_controls": [
-            "AC-6: Least Privilege",
-            "AU-6: Audit Review"
-        ],
-        "stride": {
-            "S": "Restringir execução de crawlers/jobs por IAM",
-            "T": "Validar schemas e evitar injeções",
-            "R": "Backups de catálogos de dados",
-            "I": "Verificar integridade dos datasets",
-            "D": "Auditar exclusão de jobs e catálogos",
-            "E": "Criptografia de dados em trânsito e repouso"
-        }
-    },
-    {
-        "id": "aws-step-functions",
-        "product": "aws-step-functions",
-        "cloud": "aws",
-        "categoria": "integration",
-        "descricao": "aws-step-functions: Serviço serverless para orquestração de workflows e automação de processos distribuídos.",
-        "link_oficial": "https://aws.amazon.com/step-functions/",
-        "recomendacoes": [
-            "Aplicar IAM roles com mínimo privilégio",
-            "Auditar execuções e transições de estado",
-            "Definir timeouts e tratativas de falha"
-        ],
-        "cis_controls": [
-            "CIS AWS: Ensure workflows enforce least privilege",
-            "CIS AWS: Ensure monitoring and logging are enabled"
-        ],
-        "nist_controls": [
-            "AC-6: Least Privilege",
-            "SI-4: System Monitoring"
-        ],
-        "stride": {
-            "S": "Restringir chamadas entre estados",
-            "T": "Validar entradas/saídas entre steps",
-            "R": "Retries e fallback em workflows críticos",
-            "I": "Verificar consistência de transições",
-            "D": "Auditar exclusões de workflows",
-            "E": "Criptografar dados trafegados entre steps"
-        }
-    },
-    {
-        "id": "aws-secrets-manager",
-        "product": "aws-secrets-manager",
-        "cloud": "aws",
-        "categoria": "security",
-        "descricao": "aws-secrets-manager: Serviço para gerenciamento, rotação e acesso seguro a credenciais e segredos.",
-        "link_oficial": "https://aws.amazon.com/secrets-manager/",
-        "recomendacoes": [
-            "Habilitar rotação automática de segredos",
-            "Restringir acesso via IAM roles",
-            "Monitorar uso e auditoria de segredos"
-        ],
-        "cis_controls": [
-            "CIS AWS: Ensure secret management policies are enforced",
-            "CIS AWS: Ensure logging for secrets access is enabled"
-        ],
-        "nist_controls": [
-            "SC-12: Cryptographic Key Establishment",
-            "AU-2: Audit Events"
-        ],
-        "stride": {
-            "S": "Restringir acesso a segredos via IAM",
-            "T": "Detectar tentativas de uso indevido",
-            "R": "Rotação periódica para resiliência",
-            "I": "Garantir integridade dos segredos",
-            "D": "Auditar exclusões/alterações de segredos",
-            "E": "Criptografia com KMS/HSM"
-        }
-    },
-    {
-        "id": "aws-guardduty",
-        "product": "aws-guardduty",
-        "cloud": "aws",
-        "categoria": "security",
-        "descricao": "aws-guardduty: Serviço de detecção inteligente de ameaças baseado em ML para monitorar atividades maliciosas.",
-        "link_oficial": "https://aws.amazon.com/guardduty/",
-        "recomendacoes": [
-            "Habilitar GuardDuty em todas as contas AWS",
-            "Integrar achados com SIEM/SOC",
-            "Configurar alertas e respostas automatizadas"
-        ],
-        "cis_controls": [
-            "CIS AWS: Ensure threat detection services are enabled",
-            "CIS AWS: Ensure GuardDuty findings are monitored"
-        ],
-        "nist_controls": [
-            "SI-4: System Monitoring",
-            "IR-5: Incident Monitoring"
-        ],
-        "stride": {
-            "S": "Proteger a visibilidade dos alertas",
-            "T": "Detectar tráfego suspeito/anomalias",
-            "R": "Alta disponibilidade do serviço de detecção",
-            "I": "Garantir integridade dos achados",
-            "D": "Auditar respostas a incidentes",
-            "E": "Proteção dos dados de monitoramento"
-        }
-    },
-    {
-        "id": "aws-macie",
-        "product": "aws-macie",
-        "cloud": "aws",
-        "categoria": "security",
-        "descricao": "aws-macie: Serviço de segurança que usa ML para descobrir, classificar e proteger dados sensíveis armazenados na AWS.",
-        "link_oficial": "https://aws.amazon.com/macie/",
-        "recomendacoes": [
-            "Habilitar escaneamento em buckets S3 críticos",
-            "Definir políticas de classificação de dados",
-            "Integrar alertas com workflows de segurança"
-        ],
-        "cis_controls": [
-            "CIS AWS: Ensure data classification policies are configured",
-            "CIS AWS: Ensure monitoring of sensitive data"
-        ],
-        "nist_controls": [
-            "PL-2: System and Communications Protection Policy",
-            "MP-6: Media Sanitization"
-        ],
-        "stride": {
-            "S": "Restringir quem pode ver classificações",
-            "T": "Detectar tentativas de mascarar dados",
-            "R": "Relatórios contínuos para resiliência",
-            "I": "Garantir integridade das classificações",
-            "D": "Auditar exclusões de relatórios",
-            "E": "Proteger dados sensíveis identificados"
-        }
-    },
-    {
-        "id": "aws-waf",
-        "product": "aws-waf",
-        "cloud": "aws",
-        "categoria": "security",
-        "descricao": "aws-waf: Firewall de aplicação web gerenciado para proteger aplicações contra exploits e ataques (SQLi, XSS, etc).",
-        "link_oficial": "https://aws.amazon.com/waf/",
-        "recomendacoes": [
-            "Configurar regras gerenciadas e personalizadas",
-            "Monitorar logs de tráfego do WAF",
-            "Integrar com CloudFront e ALB"
-        ],
-        "cis_controls": [
-            "CIS AWS: Ensure WAF is enabled for public applications",
-            "CIS AWS: Ensure WAF logs are monitored"
-        ],
-        "nist_controls": [
-            "SC-7: Boundary Protection",
-            "SI-4: System Monitoring"
-        ],
-        "stride": {
-            "S": "Proteger endpoints públicos",
-            "T": "Bloquear injeções e payloads maliciosos",
-            "R": "Alta disponibilidade do serviço",
-            "I": "Integridade das regras de filtragem",
-            "D": "Auditar alterações de políticas",
-            "E": "TLS e criptografia de tráfego"
         }
     }
 ]
