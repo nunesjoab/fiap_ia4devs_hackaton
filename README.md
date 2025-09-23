@@ -1,61 +1,75 @@
-Introdução
+# Documentação sobre Integração com Azure Search
+
+## Introdução
 Este projeto permite a integração com o Azure Cognitive Search, possibilitando a criação de índices e o upload de documentos em formato JSON. Este documento tem como objetivo orientar os desenvolvedores e a equipe de TI sobre como configurar e utilizar o código disponibilizado.
 
-Acesso ao Código
+## Acesso ao Código
 O código está hospedado no repositório e pode ser acessado através do seguinte link:
 
-Repositório de Integração com Azure Search (inserir link do repositório aqui)
+[Repositório de Integração com Azure Search](#)  *(inserir link do repositório aqui)*
 
-Configuração Inicial
+## Configuração Inicial
 Para utilizar o código, é necessário seguir estas etapas:
 
-Instalação dos Pacotes: Antes de executar o código, instale os pacotes necessários utilizando o seguinte comando:
+1. **Instalação dos Pacotes**:
+   Antes de executar o código, instale os pacotes necessários utilizando o seguinte comando:
+   ```bash
+   pip install azure-search-documents
+   ```
 
-pip install azure-search-documents
-Configuração das Credenciais: É necessário configurar as seguintes variáveis no código:
+2. **Configuração das Credenciais**:
+   É necessário configurar as seguintes variáveis no código:
+   - `SEARCH_SERVICE_NAME`: Nome do serviço de pesquisa no Azure.
+   - `SEARCH_API_KEY`: Chave API para autenticação no Azure.
+   - `SEARCH_INDEX_NAME`: Nome do índice a ser utilizado.
+   
+   Exemplo de configuração:
+   ```python
+   SEARCH_SERVICE_NAME = "NOME DO SERVIÇO"
+   SEARCH_API_KEY = "SUA CHAVE API"
+   SEARCH_INDEX_NAME = "cloud-components-index"
+   ```
 
-SEARCH_SERVICE_NAME: Nome do serviço de pesquisa no Azure.
-SEARCH_API_KEY: Chave API para autenticação no Azure.
-SEARCH_INDEX_NAME: Nome do índice a ser utilizado.
-Exemplo de configuração:
-
-SEARCH_SERVICE_NAME = "NOME DO SERVIÇO"
-SEARCH_API_KEY = "SUA CHAVE API"
-SEARCH_INDEX_NAME = "cloud-components-index"
-Funções Principais
+## Funções Principais
 O código contém as seguintes funções principais:
 
-Criar Índice: create_index()
+1. **Criar Índice**: `create_index()`
+   - Esta função cria um novo índice ou remove o índice existente.
 
-Esta função cria um novo índice ou remove o índice existente.
-Fazer Upload de JSON: upload_json_file(file_path)
+2. **Fazer Upload de JSON**: `upload_json_file(file_path)`
+   - Realiza o upload de documentos a partir de um arquivo JSON.
 
-Realiza o upload de documentos a partir de um arquivo JSON.
-Verificar Documentos Processados: verificar_documentos_processados(docs, num_exemplos=2)
+3. **Verificar Documentos Processados**: `verificar_documentos_processados(docs, num_exemplos=2)`
+   - Verifica e imprime exemplos de documentos processados.
 
-Verifica e imprime exemplos de documentos processados.
-Busca de Documentos: search_documents()
+4. **Busca de Documentos**: `search_documents()`
+   - Realiza buscas no índice e imprime os resultados.
 
-Realiza buscas no índice e imprime os resultados.
-Imprimir Resultados: print_results(results)
+5. **Imprimir Resultados**: `print_results(results)`
+   - Formata a impressão dos resultados de busca.
 
-Formata a impressão dos resultados de busca.
-Execução do Código
+## Execução do Código
 Para executar o código, você deve chamar as funções na seguinte ordem:
 
-Criar Índice:
+1. **Criar Índice**:
+   ```python
+   create_index()
+   ```
 
-create_index()
-Fazer Upload do Arquivo JSON:
+2. **Fazer Upload do Arquivo JSON**:
+   ```python
+   upload_json_file("/caminho/para/seu/arquivo.json")
+   ```
 
-upload_json_file("/caminho/para/seu/arquivo.json")
-Buscar Documentos:
+3. **Buscar Documentos**:
+   ```python
+   search_documents()
+   ```
 
-search_documents()
-Substitua "/caminho/para/seu/arquivo.json" pelo caminho do seu arquivo JSON.
+Substitua `"/caminho/para/seu/arquivo.json"` pelo caminho do seu arquivo JSON.
 
-Suporte
+## Suporte
 Em caso de dúvidas ou problemas com a integração, entre em contato com a equipe de TI.
 
-Conclusão
+## Conclusão
 Utilize este projeto para integrar com o Azure Cognitive Search e gerenciar índices e documentos de forma eficiente. Aproveite os recursos disponíveis para melhorar a busca e a organização dos dados da sua aplicação.
