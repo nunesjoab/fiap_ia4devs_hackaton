@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Architecture Analyzer • Demo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { 500:'#6366f1',600:'#4f46e5',700:'#4338ca' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body{ background:#0b1020; }
+    .spinner{ width: 1rem; height:1rem; border:3px solid rgba(255,255,255,.35); border-top-color:#fff; border-radius:9999px; animation: spin .9s linear infinite }
+    @keyframes spin{ to{ transform:rotate(360deg) }}
+  </style>
+</head>
+<body class="text-slate-200 min-h-screen">
+  <header class="sticky top-0 z-30">
+    <div class="mx-auto max-w-7xl px-5 pt-5 flex items-center justify-between">
+      <h1 class="text-xl font-semibold">AI Architecture Analyzer</h1>
+      <button id="loginBtn" class="flex items-center gap-2 bg-slate-900 hover:bg-black text-white rounded-lg px-4 py-2 text-sm">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" class="w-4 h-4"/>
+        <span>Entrar com Microsoft</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-7xl px-5 py-8">
+    <section class="bg-slate-900/60 rounded-2xl p-6 mb-6">
+      <label for="diagramUrl" class="block text-sm mb-2">Link do desenho (fileUrl)</label>
+      <div class="flex flex-col md:flex-row gap-3">
+        <input id="diagramUrl" type="url" placeholder="https://.../meu-diagrama.png" class="flex-1 rounded-xl border border-slate-700 bg-slate-800 px-4 py-3" />
+        <div class="flex gap-3">
+          <button id="analyzeBtn" class="flex items-center gap-2 rounded-xl bg-brand-600 text-white px-5 py-3 font-medium hover:bg-brand-700 disabled:opacity-60">
+            <span id="analyzeLabel">Analisar</span>
+            <div id="analyzeSpinner" class="spinner hidden"></div>
+          </button>
+          <button id="clearBtn" class="rounded-xl px-4 py-3 bg-slate-700 hover:bg-slate-600">Limpar</button>
+        </div>
+      </div>
+      <div id="progressWrap" class="mt-4 hidden">
+        <div class="flex justify-between text-xs mb-1">
+          <span id="progressMsg">Processando…</span>
+          <span id="progressPct">0%</span>
+        </div>
+        <div class="h-2 rounded-full bg-slate-700">
+          <div id="progressBar" class="h-2 rounded-full bg-brand-600 w-0 transition-all"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pré-visualização da Imagem -->
+    <section id="previewSection" class="hidden mb-6">
+      <h2 class="text-lg font-semibold mb-3">Imagem do Desenho</h2>
+      <img id="previewImage" src="" alt="Preview" class="w-full max-h-[500px] object-contain rounded-xl border border-slate-700 bg-slate-950" />
+    </section>
+
+    <section id="resultSection" class="hidden">
+      <h2 class="text-lg font-semibold mb-3">Relatório</h2>
+      <iframe id="reportFrame" class="w-full h-[70vh] rounded-xl border border-slate-700 bg-slate-950"></iframe>
+    </section>
+
+    <div id="toast" class="fixed left-1/2 -translate-x-1/2 bottom-6 z-50 hidden">
+      <div class="rounded-xl bg-slate-900 text-white px-4 py-3 shadow-lg text-sm" id="toastMsg"></div>
+    </div>
+  </main>
+
+  <script>
+    const API_ENDPOINT = "https://postech-ai-grupo16.azure-api.net/achitecture/v1/analyze";
+    const API_METHOD = "POST";
+    const API_KEY = "618a797fe80647ed93c05306bc62db43"; // sua chave
+
+    const $ = (q)=>document.querySelector(q);
+    const diagramUrlInput = $("#diagramUrl");
+    const analyzeBtn = $("#analyzeBtn");
+    const analyzeLabel = $("#analyzeLabel");
+    const analyzeSpinner = $("#analyzeSpinner");
+    const clearBtn = $("#clearBtn");
+    const progressWrap = $("#progressWrap");
+    const progressPct = $("#progressPct");
+    const progressBar = $("#progressBar");
+    const previewSection = $("#previewSection");
+    const previewImage = $("#previewImage");
+    const resultSection = $("#resultSection");
+    const reportFrame = $("#reportFrame");
+    const toast = $("#toast");
+    const toastMsg = $("#toastMsg");
+
+    function showToast(msg){ toastMsg.textContent=msg; toast.classList.remove("hidden"); setTimeout(()=>toast.classList.add("hidden"),3000); }
+
+    function setLoading(l){
+      analyzeBtn.disabled=l; diagramUrlInput.disabled=l;
+      if(l){ analyzeLabel.textContent="Analisando…"; analyzeSpinner.classList.remove("hidden"); progressWrap.classList.remove("hidden"); startProgress(); }
+      else { analyzeLabel.textContent="Analisar"; analyzeSpinner.classList.add("hidden"); stopProgress(); progressWrap.classList.add("hidden"); }
+    }
+
+    function isValidUrl(v){ try{ new URL(v); return true;}catch{ return false; } }
+
+    clearBtn.addEventListener('click', ()=>{
+      diagramUrlInput.value='';
+      resultSection.classList.add('hidden');
+      previewSection.classList.add('hidden');
+      reportFrame.src='about:blank';
+      previewImage.src='';
+    });
+
+    analyzeBtn.addEventListener('click', async ()=>{
+      const url = diagramUrlInput.value.trim();
+      if(!isValidUrl(url)){ showToast("Informe uma URL válida"); return; }
+
+      setLoading(true);
+      previewImage.src = url;
+      previewSection.classList.remove('hidden');
+      resultSection.classList.remove('hidden');
+
+      try{
+        const payload = { fileUrl: url };
+        const res = await fetch(API_ENDPOINT, {
+          method: API_METHOD,
+          headers: {
+            'Content-Type': 'application/json',
+            'Ocp-apim-subscription-key': API_KEY,
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if(!res.ok){
+          let errMsg = `Erro ${res.status}`;
+          try {
+            const data = await res.json();
+            if (data && data.message) {
+              errMsg = data.message;
+            }
+          } catch {
+            const text = await res.text().catch(()=>"");
+            if(text) errMsg += ` - ${text}`;
+          }
+          throw new Error(errMsg);
+        }
+
+        const responseData = await res.json();
+
+        if(!responseData || !responseData.report){ throw new Error("Resposta inválida"); }
+
+        reportFrame.src = responseData.report;
+      }catch(e){
+        showToast(e.message);
+      }
+      setLoading(false);
+    });
+
+    let progTimer=null,progVal=0;
+    function startProgress(){ progVal=10; progressBar.style.width=progVal+'%'; progressPct.textContent=progVal+'%'; progTimer=setInterval(()=>{ progVal+=Math.max(1,Math.floor((90-progVal)/6)); if(progVal>90) progVal=90; progressBar.style.width=progVal+'%'; progressPct.textContent=progVal+'%'; },300); }
+    function stopProgress(){ clearInterval(progTimer); progVal=0; progressBar.style.width='0%'; progressPct.textContent='0%'; }
+  </script>
+</body>
+</html>
