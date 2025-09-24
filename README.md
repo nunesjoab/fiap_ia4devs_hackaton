@@ -60,8 +60,6 @@ A interface web (`frontend.html`) permite que o usuário insira a URL do diagram
 
 ![Exemplo de relatório](relatorio.png)  
 
-> *Obs.: Caso disponível, pode ser substituído por um GIF animado mostrando o fluxo completo (URL inserida → relatório gerado).*  
-
 ---
 
 ## Resultado Esperado  
