@@ -48,6 +48,22 @@ O desenho de arquitetura utilizado é o seguinte:
 
 ---
 
+## Exemplo de Uso do Frontend  
+
+A interface web (`frontend.html`) permite que o usuário insira a URL do diagrama e receba o relatório.  
+
+### Tela do Frontend  
+
+![Exemplo de uso do frontend](frontend.png)  
+
+### Relatório Gerado  
+
+![Exemplo de relatório](relatorio.png)  
+
+> *Obs.: Caso disponível, pode ser substituído por um GIF animado mostrando o fluxo completo (URL inserida → relatório gerado).*  
+
+---
+
 ## Resultado Esperado  
 
 1. O usuário envia a URL de um **desenho de arquitetura**.  
@@ -58,12 +74,15 @@ O desenho de arquitetura utilizado é o seguinte:
 
 ---
 
+
 ## Futuras Expansões  
 
 - Suporte a **Google Cloud** e **Oracle Cloud**.  
 - Integração com outros canais (**Microsoft Teams**, **Slack**).  
 - Geração de relatórios em **PDF** com visualização gráfica das ameaças STRIDE.  
 - Dashboards em **Power BI** para consolidar recomendações de múltiplas arquiteturas.
+
+
 
 
 # Documentação sobre Integração com Azure Search
