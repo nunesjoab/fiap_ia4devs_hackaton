@@ -1,3 +1,71 @@
+# Trabalho Final do Hackaton do Grupo  
+## AI Architecture Analyzer  
+
+### Descrição  
+O **AI Architecture Analyzer** é uma solução desenvolvida durante o Hackaton que recebe a **URL de um desenho de arquitetura cloud** (Azure ou AWS) através de uma **API REST** e analisa os componentes de acordo com as referências:  
+
+- **CIS (Center for Internet Security)**  
+- **NIST (National Institute of Standards and Technology)**  
+- **STRIDE (Threat Modeling)**  
+
+Com base nisso, são geradas recomendações automáticas de segurança e melhores práticas.  
+
+---
+
+## Canais de Entrada  
+O projeto foi pensado como **omnichannel**, suportando diferentes canais de interação:  
+
+- **Frontend Web** → [`frontend.html`](frontend.html)  
+- **Bot no Telegram**  
+
+> A solução é expansível para qualquer outro canal que consuma **HTTP REST API**.  
+
+---
+
+## Arquitetura da Solução  
+
+O desenho de arquitetura utilizado é o seguinte:  
+
+![Arquitetura da Solução](arquitetura.jpeg)  
+
+### Componentes  
+
+- **API Management** → Exposição da API de entrada com o link do desenho da solução no formato PNG.  
+- **Logic Apps** → Responsável por orquestrar toda a execução da solução.  
+- **OpenAI (GPT-4)** → Interpreta o desenho e extrai automaticamente os componentes da arquitetura.  
+- **Azure AI Search** → Armazena e indexa o dataset de componentes de arquitetura carregados previamente (via Colab).  
+- **Azure Storage** → Armazena os relatórios gerados e disponibiliza links autenticados com expiração de **10 minutos**.  
+
+---
+
+## Exemplos de Input  
+
+- Exemplo 1:  
+  https://learn.microsoft.com/pt-br/azure/architecture/icons/images/real-time-analytics.png  
+
+- Exemplo 2:  
+  https://cdn.nulab.com/learn-wp/app/uploads/2021/08/14211858/architectural-diagram-2.png  
+
+---
+
+## Resultado Esperado  
+
+1. O usuário envia a URL de um **desenho de arquitetura**.  
+2. O **AI Architecture Analyzer** identifica os componentes automaticamente.  
+3. São aplicadas recomendações baseadas em **CIS**, **NIST** e **STRIDE**.  
+4. O relatório final é gerado e armazenado no **Azure Storage**.  
+5. O usuário recebe um **link autenticado (válido por 10 minutos)** para acessar o relatório.  
+
+---
+
+## Futuras Expansões  
+
+- Suporte a **Google Cloud** e **Oracle Cloud**.  
+- Integração com outros canais (**Microsoft Teams**, **Slack**).  
+- Geração de relatórios em **PDF** com visualização gráfica das ameaças STRIDE.  
+- Dashboards em **Power BI** para consolidar recomendações de múltiplas arquiteturas.
+
+
 # Documentação sobre Integração com Azure Search
 
 ## Introdução
