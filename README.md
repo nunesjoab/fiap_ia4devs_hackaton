@@ -8,21 +8,7 @@ O **AI Architecture Analyzer** é uma solução desenvolvida durante o Hackaton 
 - **NIST (National Institute of Standards and Technology)**  
 - **STRIDE (Threat Modeling)**  
 
-Com base nisso, são geradas recomendações automáticas de segurança e melhores práticas.  
-
----
-
-## Canais de Entrada
-O projeto foi pensado como **omnichannel**, suportando diferentes canais de interação:  
-  > Dica: use **Ctrl+Clique** (Windows/Linux) ou **⌘ Cmd+Clique** (macOS) para abrir em nova aba. 
-
-- **Frontend Web** → [Frontend.html](https://postechaigrupo16.blob.core.windows.net/componentdataset/frontend.html?sp=r&st=2025-09-25T00:47:54Z&se=2025-11-25T09:02:54Z&spr=https&sv=2024-11-04&sr=b&sig=Gfc6KMF4DzE7jHiHYX9lTut7SN%2FpHF0gUUiMq%2BzESIQ%3D)  
-
-
-- **Bot no Telegram** → [iadt4g19bot](https://t.me/iadt4g19bot)  
-
-> A solução é expansível para qualquer outro canal que consuma **HTTP REST API**.  
-
+Com base nisso, são geradas recomendações automáticas de segurança e melhores práticas.   
 
 ---
 
@@ -42,6 +28,21 @@ O desenho de arquitetura utilizado é o seguinte:
 
 ---
 
+## Canais de Entrada  
+O projeto foi pensado como **omnichannel**, suportando diferentes canais de interação:  
+
+- **Frontend Web** → [Frontend.html](https://postechaigrupo16.blob.core.windows.net/componentdataset/frontend.html?sp=r&st=2025-09-25T00:47:54Z&se=2025-11-25T09:02:54Z&spr=https&sv=2024-11-04&sr=b&sig=Gfc6KMF4DzE7jHiHYX9lTut7SN%2FpHF0gUUiMq%2BzESIQ%3D)  
+  A interface web (`frontend.html`) permite que o usuário insira a URL do diagrama e receba o relatório.  
+
+- **Bot no Telegram** → [Telegram](https://t.me/iadt4g19bot)  
+  Instale o aplicativo do Telegram e use nosso bot para analisar seus desenhos de arquitetura.  
+
+> 💡 Dica: use **Ctrl+Clique** (Windows/Linux) ou **⌘ Cmd+Clique** (macOS) para abrir em nova aba.  
+> 🔗 A solução é expansível para qualquer outro canal que consuma **HTTP REST API**.  
+
+
+
+
 ## Exemplos de Input  
 
 - Exemplo 1:  
@@ -52,9 +53,6 @@ O desenho de arquitetura utilizado é o seguinte:
 
 ---
 
-## Exemplo de Uso do Frontend  
-
-A interface web (`frontend.html`) permite que o usuário insira a URL do diagrama e receba o relatório.  
 
 ### Tela do Frontend  
 
