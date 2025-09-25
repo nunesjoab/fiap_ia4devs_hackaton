@@ -15,8 +15,8 @@ Com base nisso, são geradas recomendações automáticas de segurança e melhor
 ## Canais de Entrada  
 O projeto foi pensado como **omnichannel**, suportando diferentes canais de interação:  
 
-- **Frontend Web** → [`frontend.html`](https://github.com/nunesjoab/fiap_ia4devs_hackaton/blob/main/frontend.html)  
-  - [Abrir no navegador](https://htmlpreview.github.io/?https://github.com/nunesjoab/fiap_ia4devs_hackaton/blob/main/frontend.html)  
+- **Frontend Web** → [`frontend.html`]([https://github.com/nunesjoab/fiap_ia4devs_hackaton/blob/main/frontend.html](https://postechaigrupo16.blob.core.windows.net/componentdataset/frontend.html?sp=r&st=2025-09-25T00:47:54Z&se=2025-11-25T09:02:54Z&spr=https&sv=2024-11-04&sr=b&sig=Gfc6KMF4DzE7jHiHYX9lTut7SN%2FpHF0gUUiMq%2BzESIQ%3D))  
+
 - **Bot no Telegram** → [iadt4g19bot](https://t.me/iadt4g19bot)  
 
 > A solução é expansível para qualquer outro canal que consuma **HTTP REST API**.  
