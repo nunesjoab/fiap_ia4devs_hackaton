@@ -16,7 +16,7 @@ Com base nisso, são geradas recomendações automáticas de segurança e melhor
 O projeto foi pensado como **omnichannel**, suportando diferentes canais de interação:  
   > Dica: use **Ctrl+Clique** (Windows/Linux) ou **⌘ Cmd+Clique** (macOS) para abrir em nova aba. 
 
-- **Frontend Web** → [Abrir no navegador (Azure Blob)](https://postechaigrupo16.blob.core.windows.net/componentdataset/frontend.html?sp=r&st=2025-09-25T00:47:54Z&se=2025-11-25T09:02:54Z&spr=https&sv=2024-11-04&sr=b&sig=Gfc6KMF4DzE7jHiHYX9lTut7SN%2FpHF0gUUiMq%2BzESIQ%3D)  
+- **Frontend Web** → [Frontend.html](https://postechaigrupo16.blob.core.windows.net/componentdataset/frontend.html?sp=r&st=2025-09-25T00:47:54Z&se=2025-11-25T09:02:54Z&spr=https&sv=2024-11-04&sr=b&sig=Gfc6KMF4DzE7jHiHYX9lTut7SN%2FpHF0gUUiMq%2BzESIQ%3D)  
 
 
 - **Bot no Telegram** → [iadt4g19bot](https://t.me/iadt4g19bot)  
