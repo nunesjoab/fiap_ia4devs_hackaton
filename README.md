@@ -15,8 +15,9 @@ Com base nisso, são geradas recomendações automáticas de segurança e melhor
 ## Canais de Entrada  
 O projeto foi pensado como **omnichannel**, suportando diferentes canais de interação:  
 
-- **Frontend Web** → [`frontend.html`](frontend.html)  
-- **Bot no Telegram**  
+- **Frontend Web** → [`frontend.html`](https://github.com/nunesjoab/fiap_ia4devs_hackaton/blob/main/frontend.html)  
+  - [Abrir no navegador](https://htmlpreview.github.io/?https://github.com/nunesjoab/fiap_ia4devs_hackaton/blob/main/frontend.html)  
+- **Bot no Telegram** → [iadt4g19bot](https://t.me/iadt4g19bot)  
 
 > A solução é expansível para qualquer outro canal que consuma **HTTP REST API**.  
 
@@ -58,7 +59,7 @@ A interface web (`frontend.html`) permite que o usuário insira a URL do diagram
 
 ### Relatório Gerado  
 
-![Exemplo de relatório](relatorio.png)  
+![Exemplo de relatório](relatorio.png) 
 
 ---
 
