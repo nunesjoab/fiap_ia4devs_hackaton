@@ -58,6 +58,14 @@ O projeto foi pensado como **omnichannel**, suportando diferentes canais de inte
 
 ![Exemplo de uso do frontend](frontend.png)  
 
+
+### Bot do Telegram
+
+![Exemplo de uso do bot do Telegram](bot.png)
+
+O bot do Telegram foi configurado para acessar um webhook ao receber mensagens com link ou imagem. O código Python desse webhook se encontra nos arquivos fontes (telegram-bot-lambda.py) e foi adaptado para hospedagem no AWS Lambda, exposto para internet através do AWS Gateway. 
+
+
 ### Relatório Gerado  
 
 ![Exemplo de relatório](relatorio.png) 
