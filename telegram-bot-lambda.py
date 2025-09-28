@@ -6,10 +6,10 @@ import requests
 from urlextract import URLExtract
 
 # Constantes com chaves e endpoints utilizados
-#os.environ.get('TELEGRAM_TOKEN')
-TELEGRAM_TOKEN = '8225747668:AAHlqazScA_3YjkD333H1H-ertqP1PpxXKc'
-ENDPOINT_ANALYZE_URL = 'https://postech-ai-grupo16.azure-api.net/achitecture/v1/analyze'
-ENDPOINT_ANALYZE_SUBSCRIPTION_KEY = '618a797fe80647ed93c05306bc62db43'
+
+TELEGRAM_TOKEN = os.environ.get('TELEGRAM_TOKEN')
+ENDPOINT_ANALYZE_URL = os.environ.get('ENDPOINT_ANALYZE_URL')
+ENDPOINT_ANALYZE_SUBSCRIPTION_KEY = os.environ.get('ENDPOINT_ANALYZE_SUBSCRIPTION_KEY')
 
 # Constantes com as mensagem retornadas para o usuário no Telegram
 MENSAGEM_INICIO = 'Essa é a aplicação de analise de diagramas de engenharia de software.'
@@ -152,3 +152,4 @@ def lambda_handler(event, context):
         'statusCode': 200,
         'body': json.dumps('Fim do processamento')
     }
+
