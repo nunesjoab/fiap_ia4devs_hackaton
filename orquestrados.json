@@ -1,0 +1,190 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "contentVersion": "1.0.0.0",
+        "triggers": {
+            "When_an_HTTP_request_is_received": {
+                "type": "Request",
+                "kind": "Http"
+            }
+        },
+        "actions": {
+            "Response": {
+                "runAfter": {
+                    "Create_SAS_URI_by_path_(V2)": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Response",
+                "kind": "Http",
+                "inputs": {
+                    "statusCode": 200,
+                    "headers": {
+                        "Content-Type": "application/json; charset=UTF-8"
+                    },
+                    "body": {
+                        "report": "@body('Create_SAS_URI_by_path_(V2)')?['WebUrl']"
+                    }
+                }
+            },
+            "Create_blob_(V2)": {
+                "runAfter": {
+                    "TransformaResultadoSearch": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ApiConnection",
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['azureblob']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "body": "<!doctype html>\n<html lang=\"pt-br\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Relatório de Recomendações de Arquitetura</title>\n  <style>\n    :root {\n      --bg: #0f1115;\n      --card: #151a22;\n      --muted: #9aa4b2;\n      --text: #e6edf3;\n      --chip: #1f2937;\n      --border: #263041;\n      --round: 18px;\n      --shadow: 0 10px 30px rgba(0,0,0,.35);\n      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace;\n    }\n    * { box-sizing: border-box; }\n    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: -apple-system, Segoe UI, Roboto, Inter, sans-serif; }\n    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }\n    header.report-header { display: grid; gap: 6px; margin-bottom: 20px; }\n    .title { font-size: 26px; font-weight: 800; letter-spacing: .2px; }\n    .subtitle { color: var(--muted); font-size: 13px; }\n    .chip { display:inline-block; background: var(--chip); border: 1px solid var(--border); color: var(--text); padding: 6px 10px; border-radius: 999px; font-size: 12px; }\n    .panel { background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00)), var(--card); border: 1px solid var(--border); border-radius: var(--round); box-shadow: var(--shadow); }\n    .grid { display: grid; gap: 14px; }\n    .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }\n    @media (max-width: 960px) { .grid.cols-3 { grid-template-columns: 1fr; } }\n    .summary { padding: 14px; margin-bottom: 14px; }\n    .kpi { display: flex; align-items: center; gap: 12px; padding: 12px; border: 1px dashed var(--border); border-radius: 14px; }\n    .kpi .num { font-weight: 900; font-size: 22px; }\n    .kpi .label { color: var(--muted); font-size: 12px; }\n    .section { margin-top: 14px; }\n    .section-title { padding: 14px 16px; border-bottom: 1px solid var(--border); font-weight: 700; letter-spacing: .3px; }\n    .badge { font-size: 12px; padding: 6px 10px; border-radius: 999px; background: #111827; border: 1px solid var(--border); }\n    .lists { display: grid; gap: 12px; padding: 14px 16px; }\n    .lists .block { border: 1px dashed var(--border); border-radius: 12px; padding: 12px; }\n    .lists h4 { margin: 0 0 6px 0; font-size: 13px; color: var(--muted); }\n    ul.clean { list-style: none; margin: 0; padding-left: 16px; }\n    .stride-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }\n    @media (max-width: 960px) { .stride-grid { grid-template-columns: 1fr; } }\n    .stride-item { border: 1px dashed var(--border); border-radius: 12px; padding: 12px; }\n    .stride-key { font-family: var(--mono); font-size: 12px; opacity: .85; }\n    .footer { color: var(--muted); font-size: 12px; text-align: center; margin-top: 24px; }\n    pre.code { white-space: pre-wrap; padding: 12px; background:#0b0e13; border:1px solid var(--border); border-radius:12px; overflow:auto; }\n    .card { padding:0; overflow:hidden; }\n    .card-head { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 16px; border-bottom:1px solid var(--border); }\n    .card-title { font-weight:700; font-size:16px; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <header class=\"report-header\">\n      <div class=\"title\">Relatório de Recomendações de Arquitetura</div>\n      <div class=\"subtitle\">Geração: <span id=\"now\">2025-09-17 00:48:13</span></div>\n      <span class=\"chip\" id=\"desenho-label\" style=\"display:none\"></span>\n    </header>\n\n    <section class=\"panel summary\">\n      <div class=\"grid cols-3\" id=\"kpis\"></div>\n    </section>\n\n    <section class=\"panel section\">\n      <div class=\"section-title\">Serviços & Recomendações</div>\n      <div id=\"cards\" class=\"grid\" style=\"padding:16px;\"></div>\n    </section>\n\n    <section class=\"panel section\">\n      <div class=\"section-title\">Exportar JSON desta visão</div>\n      <pre id=\"export\" class=\"code\"></pre>\n    </section>\n\n    <div class=\"footer\">© 2025 – Relatório gerado automaticamente</div>\n  </div>\n\n  <!-- Injete o JSON real aqui (Logic Apps: faça replace do marcador __REPORT_DATA__) -->\n  <script type=\"application/json\" id=\"report-data\">\n    \n@{outputs('TransformaResultadoSearch')}\n\n  </script>\n\n  <script>\n    (function() {\n      function text(el) { return (el && el.textContent) ? el.textContent : \"\"; }\n      function parseJsonSafely(t) { try { return JSON.parse(t); } catch(e) { return null; } }\n      function esc(s) {\n        s = (s == null ? \"\" : String(s));\n        return s.replace(/&/g,\"&amp;\").replace(/</g,\"&lt;\").replace(/>/g,\"&gt;\").replace(/\"/g,\"&quot;\").replace(/'/g,\"&#039;\");\n      }\n      function strideBlock(stride) {\n        var labels = {S:\"Spoofing\", T:\"Tampering\", R:\"Repudiation\", I:\"Information Disclosure\", D:\"Denial of Service\", E:\"Elevation of Privilege\"};\n        var keys = [\"S\",\"T\",\"R\",\"I\",\"D\",\"E\"];\n        var html = '<div class=\"stride-grid\">';\n        for (var i=0;i<keys.length;i++) {\n          var k = keys[i];\n          var val = (stride && stride[k]) ? stride[k] : \"\";\n          html += '<div class=\"stride-item\">'\n               +  '<div class=\"stride-key\">' + k + ' • ' + labels[k] + '</div>'\n               +  '<div style=\"margin-top:6px;\">' + esc(val) + '</div>'\n               +  '</div>';\n        }\n        html += '</div>';\n        return html;\n      }\n      function list(items) {\n        if (!items || !items.length) return \"<li>—</li>\";\n        var out = \"\";\n        for (var i=0;i<items.length;i++) out += \"<li>\" + esc(items[i]) + \"</li>\";\n        return out;\n      }\n      function renderCard(it) {\n        var prod = esc(it.product || \"desconhecido\");\n        var cat = esc(it.categoria || \"sem-categoria\");\n        var html = ''\n          + '<article class=\"panel card\">'\n          +   '<div class=\"card-head\">'\n          +     '<div class=\"card-title\">' + prod + '</div>'\n          +     '<div class=\"badge\">' + cat + '</div>'\n          +   '</div>'\n          +   '<div class=\"lists\">'\n          +     '<div class=\"block\"><h4>Recomendações</h4><ul class=\"clean\">' + list(it.recomendacoes) + '</ul></div>'\n          +     '<div class=\"block\"><h4>Mapeamento CIS</h4><ul class=\"clean\">' + list(it.cis_controls) + '</ul></div>'\n          +     '<div class=\"block\"><h4>Mapeamento NIST</h4><ul class=\"clean\">' + list(it.nist_controls) + '</ul></div>'\n          +     '<div class=\"block\"><h4>STRIDE</h4>' + strideBlock(it.stride) + '</div>'\n          +   '</div>'\n          + '</article>';\n        return html;\n      }\n      function countByCategory(items) {\n        var map = {};\n        for (var i=0;i<items.length;i++) {\n          var c = (items[i].categoria || 'sem-categoria').toLowerCase();\n          map[c] = (map[c] || 0) + 1;\n        }\n        return map;\n      }\n      function kpi(num, label) {\n        return ''\n          + '<div class=\"panel kpi\">'\n          +   '<div class=\"num\">' + num + '</div>'\n          +   '<div class=\"label\">' + label + '</div>'\n          + '</div>';\n      }\n\n      var payload = parseJsonSafely(text(document.getElementById('report-data')));\n      if (!payload) { payload = [{\"product\":\"azure-blob-storage\",\"categoria\":\"storage\",\"recomendacoes\":[\"Habilitar criptografia com customer-managed keys (CMK)\",\"Aplicar políticas de acesso com RBAC\",\"Restringir uso de SAS tokens públicos\"],\"cis_controls\":[\"CIS AZU 3.1: Ensure that 'Secure transfer required' is enabled\",\"CIS AZU 3.5: Enable soft delete for Blob storage\"],\"nist_controls\":[\"AC-2: Account Management\",\"SC-12: Cryptographic Key Establishment\"],\"stride\":{\"S\":\"Proteger acesso público via RBAC e firewalls\",\"T\":\"Monitorar e validar uso de SAS tokens\",\"R\":\"Implementar replicação geográfica com integridade\",\"I\":\"Habilitar versionamento de blobs\",\"D\":\"Auditar operações de exclusão e aplicar logs imutáveis\",\"E\":\"Garantir criptografia em trânsito e repouso\"}},{\"product\":\"azure-key-vault\",\"categoria\":\"security\",\"recomendacoes\":[\"Habilitar purge protection e soft delete\",\"Usar RBAC (Azure role-based) ao invés de access policies clássicas\",\"Habilitar private endpoints\"],\"cis_controls\":[\"CIS AZU 5.1: Ensure that Azure Key Vault is recoverable\",\"CIS AZU 5.3: Ensure that Key Vault logging is enabled\"],\"nist_controls\":[\"SC-28: Protection of Information at Rest\",\"AU-2: Audit Events\"],\"stride\":{\"S\":\"Segregar permissões e aplicar princípio do menor privilégio\",\"T\":\"Alertar para tentativas de acesso mal-sucedidas\",\"R\":\"Cofre secundário para DR e rotação programada\",\"I\":\"Habilitar versões e rotação automática de chaves\",\"D\":\"Registro detalhado de exclusões e recuperações\",\"E\":\"Forçar TLS 1.2+ e CMK quando aplicável\"}}]; }\n\n      var cardsEl = document.getElementById('cards');\n      var kpisEl = document.getElementById('kpis');\n      var exportEl = document.getElementById('export');\n      var desenhoLabel = document.getElementById('desenho-label');\n\n      if (window.DRAWING_TITLE) {\n        desenhoLabel.style.display = \"inline-block\";\n        desenhoLabel.textContent = \"Desenho: \" + String(window.DRAWING_TITLE);\n      }\n\n      var total = payload.length;\n      var cats = countByCategory(payload);\n      var distinctCats = 0; for (var k in cats) { if (cats.hasOwnProperty(k)) distinctCats++; }\n      var totalRecs = 0;\n      for (var i=0;i<payload.length;i++) { totalRecs += (payload[i].recomendacoes ? payload[i].recomendacoes.length : 0); }\n\n      kpisEl.innerHTML = kpi(total, \"serviços analisados\")\n                       + kpi(distinctCats, \"categorias distintas\")\n                       + kpi(totalRecs, \"recomendações totais\");\n\n      var htmlCards = \"\";\n      for (var j=0;j<payload.length;j++) htmlCards += renderCard(payload[j]);\n      cardsEl.innerHTML = htmlCards;\n\n      try { exportEl.textContent = JSON.stringify(payload, null, 2); } catch(e) { exportEl.textContent = \"—\"; }\n    })();\n  </script>\n</body>\n</html>\n",
+                    "headers": {
+                        "Content-Type": "text/html; charset=UTF-8",
+                        "ReadFileMetadataFromServer": true
+                    },
+                    "path": "/v2/datasets/@{encodeURIComponent(encodeURIComponent('AccountNameFromSettings'))}/files",
+                    "queries": {
+                        "folderPath": "/reports",
+                        "name": "@concat(guid())",
+                        "queryParametersSingleEncoded": true
+                    }
+                },
+                "runtimeConfiguration": {
+                    "contentTransfer": {
+                        "transferMode": "Chunked"
+                    }
+                }
+            },
+            "Create_SAS_URI_by_path_(V2)": {
+                "runAfter": {
+                    "Create_blob_(V2)": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ApiConnection",
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['azureblob']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "body": {
+                        "Permissions": "Read",
+                        "StartTime": "@utcNow()",
+                        "ExpiryTime": "@addMinutes(utcNow(),5)",
+                        "AccessProtocol": "HttpsOnly"
+                    },
+                    "path": "/v2/datasets/@{encodeURIComponent('AccountNameFromSettings')}/CreateSharedLinkByPath",
+                    "queries": {
+                        "path": "@body('Create_blob_(V2)')?['Path']"
+                    }
+                }
+            },
+            "HTTP_Search": {
+                "runAfter": {
+                    "TransformaResultado": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Http",
+                "inputs": {
+                    "uri": "https://cognitive-search-fiap-ia4devs-group19.search.windows.net/indexes/cloud-components-index/docs/search?api-version=2021-04-30-Preview",
+                    "method": "POST",
+                    "headers": {
+                        "Content-Type": "application/json",
+                        "api-key": ""
+                    },
+                    "body": {
+                        "search": "*",
+                        "filter": "search.in(product, '@{outputs('TransformaResultado')}', ',')",
+                        "select": "id,product,categoria,recomendacoes,cis_controls,nist_controls,stride"
+                    }
+                },
+                "runtimeConfiguration": {
+                    "contentTransfer": {
+                        "transferMode": "Chunked"
+                    }
+                }
+            },
+            "TransformaResultadoSearch": {
+                "runAfter": {
+                    "HTTP_Search": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Compose",
+                "inputs": "@json(string(body('HTTP_Search')))?['value']"
+            },
+            "TransformaResultado": {
+                "runAfter": {
+                    "HTTPOpenAi": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Compose",
+                "inputs": "@join(json(replace(replace(body('HTTPOpenAi')?['choices'][0]?['message']?['content'],'```json',''),'```','')),',')"
+            },
+            "HTTPOpenAi": {
+                "runAfter": {},
+                "type": "Http",
+                "inputs": {
+                    "uri": "https://api.openai.com/v1/chat/completions",
+                    "method": "POST",
+                    "headers": {
+                        "Authorization": "Bearer sk-proj--"
+                    },
+                    "body": {
+                        "model": "gpt-4o",
+                        "messages": [
+                            {
+                                "role": "user",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "Analise esta este desenho de arquitetura cloud com servicos azure e aws  e diga apenas quais serviços de nuvem aparecem (Azure ou AWS). Responda no formato JSON com apenas os nomes dos produtos no padrão cloud. com o prefixo do provider Exemplo: ['azure-functions', 'azure-blob-storage', 'azure-cache-for-redis','aws-api-gateway','aws-athena','aws-cloudfront']"
+                                    },
+                                    {
+                                        "type": "image_url",
+                                        "image_url": {
+                                            "url": "@{triggerBody()?['fileUrl']}"
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "max_tokens": 300
+                    }
+                },
+                "runtimeConfiguration": {
+                    "contentTransfer": {
+                        "transferMode": "Chunked"
+                    }
+                }
+            }
+        },
+        "outputs": {},
+        "parameters": {
+            "$connections": {
+                "type": "Object",
+                "defaultValue": {}
+            }
+        }
+    },
+    "parameters": {
+        "$connections": {
+            "type": "Object",
+            "value": {
+                "azureblob": {
+                    "id": "/subscriptions/af03554d-fbb5-4f49-a60f-c3b9915079fc/providers/Microsoft.Web/locations/centralus/managedApis/azureblob",
+                    "connectionId": "/subscriptions/af03554d-fbb5-4f49-a60f-c3b9915079fc/resourceGroups/DefaultResourceGroup-CQ/providers/Microsoft.Web/connections/azureblob",
+                    "connectionName": "azureblob"
+                }
+            }
+        }
+    }
+}
