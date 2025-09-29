@@ -1,0 +1,76 @@
+openapi: 3.0.1
+info:
+  title: postech-ai-grupo16-la
+  description: Azure Logic App.
+  version: '1.0'
+servers:
+  - url: https://postech-ai-grupo16.azure-api.net/achitecture
+paths:
+  /v1/analyze:
+    post:
+      summary: When_an_HTTP_request_is_received-invoke
+      description: Trigger a run of the logic app.
+      operationId: When_an_HTTP_request_is_received-invoke
+      requestBody:
+        description: The request body.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/request-When_an_HTTP_request_is_received'
+      responses:
+        '200':
+          description: The Logic App Response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/When_an_HTTP_request_is_receivedPathsInvokePost200ApplicationJsonResponse'
+        '500':
+          description: The Logic App Response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/When_an_HTTP_request_is_receivedPathsInvokePost500ApplicationJsonResponse'
+components:
+  schemas:
+    request-When_an_HTTP_request_is_received:
+      required:
+        - fileUrl
+      type: object
+      properties:
+        fileUrl:
+          pattern: \.(png|jpe?g)(?:$|\?|#)
+          type: string
+          format: uri
+      additionalProperties: false
+    When_an_HTTP_request_is_receivedPathsInvokePost200ApplicationJsonResponse:
+      required:
+        - fileUrl
+      type: object
+      properties:
+        fileUrl:
+          pattern: \.(png|jpe?g)(?:$|\?|#)
+          type: string
+          format: uri
+      additionalProperties: false
+    When_an_HTTP_request_is_receivedPathsInvokePost500ApplicationJsonResponse:
+      required:
+        - fileUrl
+      type: object
+      properties:
+        fileUrl:
+          pattern: \.(png|jpe?g)(?:$|\?|#)
+          type: string
+          format: uri
+      additionalProperties: false
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]
